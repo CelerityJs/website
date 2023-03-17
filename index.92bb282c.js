@@ -16556,7 +16556,7 @@ function App({ state  }) {
     }, "library for building reusable, scalable Design Systems. Generate small, blazing fast Web Components that run everywhere. Complete Typescript for safe code execution."), (0, _index.Celerity).createElement("p", {
         className: "hero_subtitle"
     }, "Built with love ❤️ for future of open web!"), (0, _index.Celerity).createElement("div", null, (0, _index.Celerity).createElement("a", {
-        href: "/",
+        href: "#",
         className: "hero_button"
     }, " ", (0, _index.Celerity).createElement("span", {
         className: ""

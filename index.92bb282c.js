@@ -16530,16 +16530,16 @@ function App({ state  }) {
     }, "Celerity"), (0, _index.Celerity).createElement("ul", {
         className: "nav_links"
     }, (0, _index.Celerity).createElement("a", {
-        href: "/",
+        href: "#",
         className: "nav_link"
     }, "Home"), (0, _index.Celerity).createElement("a", {
-        href: "/",
+        href: "#",
         className: "nav_link"
     }, "About"), (0, _index.Celerity).createElement("a", {
-        href: "/",
+        href: "#",
         className: "nav_link"
     }, "Story"), (0, _index.Celerity).createElement("a", {
-        href: "/",
+        href: "#",
         className: "button nav_button"
     }, "Get Started")))), (0, _index.Celerity).createElement("div", {
         className: "hero"

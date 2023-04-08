@@ -557,19 +557,2740 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"yewiC":[function(require,module,exports) {
-var _index = require("../../src/index");
+var _web = require("solid-js/web");
+var _core = require("@celerityjs/core");
 var _appJs = require("./App.js");
-(0, _index.Celerity).Render((0, _index.Celerity).createElement("main-app", null), document.getElementById("root"));
+const _tmpl$ = /*#__PURE__*/ (0, _web.template)(`<main-app>`, true, false);
+(0, _core.Celerity).Render((()=>{
+    const _el$ = _tmpl$();
+    _el$._$owner = (0, _web.getOwner)();
+    return _el$;
+})(), document.getElementById("root"));
 
-},{"../../src/index":"h7u1C","./App.js":"1tcpE"}],"h7u1C":[function(require,module,exports) {
+},{"solid-js/web":"1DGm0","@celerityjs/core":"hYM5F","./App.js":"1tcpE"}],"1DGm0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Celerity", ()=>(0, _core.Celerity));
-parcelHelpers.export(exports, "Component", ()=>(0, _core.Component));
-parcelHelpers.export(exports, "Types", ()=>(0, _core.Types));
-var _core = require("../packages/core");
+parcelHelpers.export(exports, "ErrorBoundary", ()=>(0, _solidJs.ErrorBoundary));
+parcelHelpers.export(exports, "For", ()=>(0, _solidJs.For));
+parcelHelpers.export(exports, "Index", ()=>(0, _solidJs.Index));
+parcelHelpers.export(exports, "Match", ()=>(0, _solidJs.Match));
+parcelHelpers.export(exports, "Show", ()=>(0, _solidJs.Show));
+parcelHelpers.export(exports, "Suspense", ()=>(0, _solidJs.Suspense));
+parcelHelpers.export(exports, "SuspenseList", ()=>(0, _solidJs.SuspenseList));
+parcelHelpers.export(exports, "Switch", ()=>(0, _solidJs.Switch));
+parcelHelpers.export(exports, "createComponent", ()=>(0, _solidJs.createComponent));
+parcelHelpers.export(exports, "effect", ()=>(0, _solidJs.createRenderEffect));
+parcelHelpers.export(exports, "getOwner", ()=>(0, _solidJs.getOwner));
+parcelHelpers.export(exports, "memo", ()=>(0, _solidJs.createMemo));
+parcelHelpers.export(exports, "mergeProps", ()=>(0, _solidJs.mergeProps));
+parcelHelpers.export(exports, "untrack", ()=>(0, _solidJs.untrack));
+parcelHelpers.export(exports, "Aliases", ()=>Aliases);
+parcelHelpers.export(exports, "Assets", ()=>voidFn);
+parcelHelpers.export(exports, "ChildProperties", ()=>ChildProperties);
+parcelHelpers.export(exports, "DOMElements", ()=>DOMElements);
+parcelHelpers.export(exports, "DelegatedEvents", ()=>DelegatedEvents);
+parcelHelpers.export(exports, "Dynamic", ()=>Dynamic);
+parcelHelpers.export(exports, "Hydration", ()=>Hydration);
+parcelHelpers.export(exports, "HydrationScript", ()=>voidFn);
+parcelHelpers.export(exports, "NoHydration", ()=>NoHydration);
+parcelHelpers.export(exports, "Portal", ()=>Portal);
+parcelHelpers.export(exports, "Properties", ()=>Properties);
+parcelHelpers.export(exports, "SVGElements", ()=>SVGElements);
+parcelHelpers.export(exports, "SVGNamespace", ()=>SVGNamespace);
+parcelHelpers.export(exports, "addEventListener", ()=>addEventListener);
+parcelHelpers.export(exports, "assign", ()=>assign);
+parcelHelpers.export(exports, "classList", ()=>classList);
+parcelHelpers.export(exports, "className", ()=>className);
+parcelHelpers.export(exports, "clearDelegatedEvents", ()=>clearDelegatedEvents);
+parcelHelpers.export(exports, "delegateEvents", ()=>delegateEvents);
+parcelHelpers.export(exports, "dynamicProperty", ()=>dynamicProperty);
+parcelHelpers.export(exports, "escape", ()=>escape);
+parcelHelpers.export(exports, "generateHydrationScript", ()=>voidFn);
+parcelHelpers.export(exports, "getAssets", ()=>voidFn);
+parcelHelpers.export(exports, "getHydrationKey", ()=>getHydrationKey);
+parcelHelpers.export(exports, "getNextElement", ()=>getNextElement);
+parcelHelpers.export(exports, "getNextMarker", ()=>getNextMarker);
+parcelHelpers.export(exports, "getNextMatch", ()=>getNextMatch);
+parcelHelpers.export(exports, "getPropAlias", ()=>getPropAlias);
+parcelHelpers.export(exports, "hydrate", ()=>hydrate);
+parcelHelpers.export(exports, "innerHTML", ()=>innerHTML);
+parcelHelpers.export(exports, "insert", ()=>insert);
+parcelHelpers.export(exports, "isDev", ()=>isDev);
+parcelHelpers.export(exports, "isServer", ()=>isServer);
+parcelHelpers.export(exports, "render", ()=>render);
+parcelHelpers.export(exports, "renderToStream", ()=>renderToStream);
+parcelHelpers.export(exports, "renderToString", ()=>renderToString);
+parcelHelpers.export(exports, "renderToStringAsync", ()=>renderToStringAsync);
+parcelHelpers.export(exports, "resolveSSRNode", ()=>resolveSSRNode);
+parcelHelpers.export(exports, "runHydrationEvents", ()=>runHydrationEvents);
+parcelHelpers.export(exports, "setAttribute", ()=>setAttribute);
+parcelHelpers.export(exports, "setAttributeNS", ()=>setAttributeNS);
+parcelHelpers.export(exports, "spread", ()=>spread);
+parcelHelpers.export(exports, "ssr", ()=>ssr);
+parcelHelpers.export(exports, "ssrAttribute", ()=>ssrAttribute);
+parcelHelpers.export(exports, "ssrClassList", ()=>ssrClassList);
+parcelHelpers.export(exports, "ssrElement", ()=>ssrElement);
+parcelHelpers.export(exports, "ssrHydrationKey", ()=>ssrHydrationKey);
+parcelHelpers.export(exports, "ssrSpread", ()=>ssrSpread);
+parcelHelpers.export(exports, "ssrStyle", ()=>ssrStyle);
+parcelHelpers.export(exports, "style", ()=>style);
+parcelHelpers.export(exports, "template", ()=>template);
+parcelHelpers.export(exports, "use", ()=>use);
+parcelHelpers.export(exports, "useAssets", ()=>voidFn);
+var _solidJs = require("solid-js");
+const booleans = [
+    "allowfullscreen",
+    "async",
+    "autofocus",
+    "autoplay",
+    "checked",
+    "controls",
+    "default",
+    "disabled",
+    "formnovalidate",
+    "hidden",
+    "indeterminate",
+    "ismap",
+    "loop",
+    "multiple",
+    "muted",
+    "nomodule",
+    "novalidate",
+    "open",
+    "playsinline",
+    "readonly",
+    "required",
+    "reversed",
+    "seamless",
+    "selected"
+];
+const Properties = /*#__PURE__*/ new Set([
+    "className",
+    "value",
+    "readOnly",
+    "formNoValidate",
+    "isMap",
+    "noModule",
+    "playsInline",
+    ...booleans
+]);
+const ChildProperties = /*#__PURE__*/ new Set([
+    "innerHTML",
+    "textContent",
+    "innerText",
+    "children"
+]);
+const Aliases = /*#__PURE__*/ Object.assign(Object.create(null), {
+    className: "class",
+    htmlFor: "for"
+});
+const PropAliases = /*#__PURE__*/ Object.assign(Object.create(null), {
+    class: "className",
+    formnovalidate: {
+        $: "formNoValidate",
+        BUTTON: 1,
+        INPUT: 1
+    },
+    ismap: {
+        $: "isMap",
+        IMG: 1
+    },
+    nomodule: {
+        $: "noModule",
+        SCRIPT: 1
+    },
+    playsinline: {
+        $: "playsInline",
+        VIDEO: 1
+    },
+    readonly: {
+        $: "readOnly",
+        INPUT: 1,
+        TEXTAREA: 1
+    }
+});
+function getPropAlias(prop, tagName) {
+    const a = PropAliases[prop];
+    return typeof a === "object" ? a[tagName] ? a["$"] : undefined : a;
+}
+const DelegatedEvents = /*#__PURE__*/ new Set([
+    "beforeinput",
+    "click",
+    "dblclick",
+    "contextmenu",
+    "focusin",
+    "focusout",
+    "input",
+    "keydown",
+    "keyup",
+    "mousedown",
+    "mousemove",
+    "mouseout",
+    "mouseover",
+    "mouseup",
+    "pointerdown",
+    "pointermove",
+    "pointerout",
+    "pointerover",
+    "pointerup",
+    "touchend",
+    "touchmove",
+    "touchstart"
+]);
+const SVGElements = /*#__PURE__*/ new Set([
+    "altGlyph",
+    "altGlyphDef",
+    "altGlyphItem",
+    "animate",
+    "animateColor",
+    "animateMotion",
+    "animateTransform",
+    "circle",
+    "clipPath",
+    "color-profile",
+    "cursor",
+    "defs",
+    "desc",
+    "ellipse",
+    "feBlend",
+    "feColorMatrix",
+    "feComponentTransfer",
+    "feComposite",
+    "feConvolveMatrix",
+    "feDiffuseLighting",
+    "feDisplacementMap",
+    "feDistantLight",
+    "feFlood",
+    "feFuncA",
+    "feFuncB",
+    "feFuncG",
+    "feFuncR",
+    "feGaussianBlur",
+    "feImage",
+    "feMerge",
+    "feMergeNode",
+    "feMorphology",
+    "feOffset",
+    "fePointLight",
+    "feSpecularLighting",
+    "feSpotLight",
+    "feTile",
+    "feTurbulence",
+    "filter",
+    "font",
+    "font-face",
+    "font-face-format",
+    "font-face-name",
+    "font-face-src",
+    "font-face-uri",
+    "foreignObject",
+    "g",
+    "glyph",
+    "glyphRef",
+    "hkern",
+    "image",
+    "line",
+    "linearGradient",
+    "marker",
+    "mask",
+    "metadata",
+    "missing-glyph",
+    "mpath",
+    "path",
+    "pattern",
+    "polygon",
+    "polyline",
+    "radialGradient",
+    "rect",
+    "set",
+    "stop",
+    "svg",
+    "switch",
+    "symbol",
+    "text",
+    "textPath",
+    "tref",
+    "tspan",
+    "use",
+    "view",
+    "vkern"
+]);
+const SVGNamespace = {
+    xlink: "http://www.w3.org/1999/xlink",
+    xml: "http://www.w3.org/XML/1998/namespace"
+};
+const DOMElements = /*#__PURE__*/ new Set([
+    "html",
+    "base",
+    "head",
+    "link",
+    "meta",
+    "style",
+    "title",
+    "body",
+    "address",
+    "article",
+    "aside",
+    "footer",
+    "header",
+    "main",
+    "nav",
+    "section",
+    "body",
+    "blockquote",
+    "dd",
+    "div",
+    "dl",
+    "dt",
+    "figcaption",
+    "figure",
+    "hr",
+    "li",
+    "ol",
+    "p",
+    "pre",
+    "ul",
+    "a",
+    "abbr",
+    "b",
+    "bdi",
+    "bdo",
+    "br",
+    "cite",
+    "code",
+    "data",
+    "dfn",
+    "em",
+    "i",
+    "kbd",
+    "mark",
+    "q",
+    "rp",
+    "rt",
+    "ruby",
+    "s",
+    "samp",
+    "small",
+    "span",
+    "strong",
+    "sub",
+    "sup",
+    "time",
+    "u",
+    "var",
+    "wbr",
+    "area",
+    "audio",
+    "img",
+    "map",
+    "track",
+    "video",
+    "embed",
+    "iframe",
+    "object",
+    "param",
+    "picture",
+    "portal",
+    "source",
+    "svg",
+    "math",
+    "canvas",
+    "noscript",
+    "script",
+    "del",
+    "ins",
+    "caption",
+    "col",
+    "colgroup",
+    "table",
+    "tbody",
+    "td",
+    "tfoot",
+    "th",
+    "thead",
+    "tr",
+    "button",
+    "datalist",
+    "fieldset",
+    "form",
+    "input",
+    "label",
+    "legend",
+    "meter",
+    "optgroup",
+    "option",
+    "output",
+    "progress",
+    "select",
+    "textarea",
+    "details",
+    "dialog",
+    "menu",
+    "summary",
+    "details",
+    "slot",
+    "template",
+    "acronym",
+    "applet",
+    "basefont",
+    "bgsound",
+    "big",
+    "blink",
+    "center",
+    "content",
+    "dir",
+    "font",
+    "frame",
+    "frameset",
+    "hgroup",
+    "image",
+    "keygen",
+    "marquee",
+    "menuitem",
+    "nobr",
+    "noembed",
+    "noframes",
+    "plaintext",
+    "rb",
+    "rtc",
+    "shadow",
+    "spacer",
+    "strike",
+    "tt",
+    "xmp",
+    "a",
+    "abbr",
+    "acronym",
+    "address",
+    "applet",
+    "area",
+    "article",
+    "aside",
+    "audio",
+    "b",
+    "base",
+    "basefont",
+    "bdi",
+    "bdo",
+    "bgsound",
+    "big",
+    "blink",
+    "blockquote",
+    "body",
+    "br",
+    "button",
+    "canvas",
+    "caption",
+    "center",
+    "cite",
+    "code",
+    "col",
+    "colgroup",
+    "content",
+    "data",
+    "datalist",
+    "dd",
+    "del",
+    "details",
+    "dfn",
+    "dialog",
+    "dir",
+    "div",
+    "dl",
+    "dt",
+    "em",
+    "embed",
+    "fieldset",
+    "figcaption",
+    "figure",
+    "font",
+    "footer",
+    "form",
+    "frame",
+    "frameset",
+    "head",
+    "header",
+    "hgroup",
+    "hr",
+    "html",
+    "i",
+    "iframe",
+    "image",
+    "img",
+    "input",
+    "ins",
+    "kbd",
+    "keygen",
+    "label",
+    "legend",
+    "li",
+    "link",
+    "main",
+    "map",
+    "mark",
+    "marquee",
+    "menu",
+    "menuitem",
+    "meta",
+    "meter",
+    "nav",
+    "nobr",
+    "noembed",
+    "noframes",
+    "noscript",
+    "object",
+    "ol",
+    "optgroup",
+    "option",
+    "output",
+    "p",
+    "param",
+    "picture",
+    "plaintext",
+    "portal",
+    "pre",
+    "progress",
+    "q",
+    "rb",
+    "rp",
+    "rt",
+    "rtc",
+    "ruby",
+    "s",
+    "samp",
+    "script",
+    "section",
+    "select",
+    "shadow",
+    "slot",
+    "small",
+    "source",
+    "spacer",
+    "span",
+    "strike",
+    "strong",
+    "style",
+    "sub",
+    "summary",
+    "sup",
+    "table",
+    "tbody",
+    "td",
+    "template",
+    "textarea",
+    "tfoot",
+    "th",
+    "thead",
+    "time",
+    "title",
+    "tr",
+    "track",
+    "tt",
+    "u",
+    "ul",
+    "var",
+    "video",
+    "wbr",
+    "xmp",
+    "input"
+]);
+function reconcileArrays(parentNode, a, b) {
+    let bLength = b.length, aEnd = a.length, bEnd = bLength, aStart = 0, bStart = 0, after = a[aEnd - 1].nextSibling, map = null;
+    while(aStart < aEnd || bStart < bEnd){
+        if (a[aStart] === b[bStart]) {
+            aStart++;
+            bStart++;
+            continue;
+        }
+        while(a[aEnd - 1] === b[bEnd - 1]){
+            aEnd--;
+            bEnd--;
+        }
+        if (aEnd === aStart) {
+            const node = bEnd < bLength ? bStart ? b[bStart - 1].nextSibling : b[bEnd - bStart] : after;
+            while(bStart < bEnd)parentNode.insertBefore(b[bStart++], node);
+        } else if (bEnd === bStart) while(aStart < aEnd){
+            if (!map || !map.has(a[aStart])) a[aStart].remove();
+            aStart++;
+        }
+        else if (a[aStart] === b[bEnd - 1] && b[bStart] === a[aEnd - 1]) {
+            const node = a[--aEnd].nextSibling;
+            parentNode.insertBefore(b[bStart++], a[aStart++].nextSibling);
+            parentNode.insertBefore(b[--bEnd], node);
+            a[aEnd] = b[bEnd];
+        } else {
+            if (!map) {
+                map = new Map();
+                let i = bStart;
+                while(i < bEnd)map.set(b[i], i++);
+            }
+            const index = map.get(a[aStart]);
+            if (index != null) {
+                if (bStart < index && index < bEnd) {
+                    let i = aStart, sequence = 1, t;
+                    while(++i < aEnd && i < bEnd){
+                        if ((t = map.get(a[i])) == null || t !== index + sequence) break;
+                        sequence++;
+                    }
+                    if (sequence > index - bStart) {
+                        const node = a[aStart];
+                        while(bStart < index)parentNode.insertBefore(b[bStart++], node);
+                    } else parentNode.replaceChild(b[bStart++], a[aStart++]);
+                } else aStart++;
+            } else a[aStart++].remove();
+        }
+    }
+}
+const $$EVENTS = "_$DX_DELEGATE";
+function render(code, element, init, options = {}) {
+    let disposer;
+    (0, _solidJs.createRoot)((dispose)=>{
+        disposer = dispose;
+        element === document ? code() : insert(element, code(), element.firstChild ? null : undefined, init);
+    }, options.owner);
+    return ()=>{
+        disposer();
+        element.textContent = "";
+    };
+}
+function template(html, isCE, isSVG) {
+    let node;
+    const create = ()=>{
+        const t = document.createElement("template");
+        t.innerHTML = html;
+        return isSVG ? t.content.firstChild.firstChild : t.content.firstChild;
+    };
+    const fn = isCE ? ()=>(node || (node = create())).cloneNode(true) : ()=>(0, _solidJs.untrack)(()=>document.importNode(node || (node = create()), true));
+    fn.cloneNode = fn;
+    return fn;
+}
+function delegateEvents(eventNames, document1 = window.document) {
+    const e = document1[$$EVENTS] || (document1[$$EVENTS] = new Set());
+    for(let i = 0, l = eventNames.length; i < l; i++){
+        const name = eventNames[i];
+        if (!e.has(name)) {
+            e.add(name);
+            document1.addEventListener(name, eventHandler);
+        }
+    }
+}
+function clearDelegatedEvents(document1 = window.document) {
+    if (document1[$$EVENTS]) {
+        for (let name of document1[$$EVENTS].keys())document1.removeEventListener(name, eventHandler);
+        delete document1[$$EVENTS];
+    }
+}
+function setAttribute(node, name, value) {
+    if (value == null) node.removeAttribute(name);
+    else node.setAttribute(name, value);
+}
+function setAttributeNS(node, namespace, name, value) {
+    if (value == null) node.removeAttributeNS(namespace, name);
+    else node.setAttributeNS(namespace, name, value);
+}
+function className(node, value) {
+    if (value == null) node.removeAttribute("class");
+    else node.className = value;
+}
+function addEventListener(node, name, handler, delegate) {
+    if (delegate) {
+        if (Array.isArray(handler)) {
+            node[`$$${name}`] = handler[0];
+            node[`$$${name}Data`] = handler[1];
+        } else node[`$$${name}`] = handler;
+    } else if (Array.isArray(handler)) {
+        const handlerFn = handler[0];
+        node.addEventListener(name, handler[0] = (e)=>handlerFn.call(node, handler[1], e));
+    } else node.addEventListener(name, handler);
+}
+function classList(node, value, prev = {}) {
+    const classKeys = Object.keys(value || {}), prevKeys = Object.keys(prev);
+    let i, len;
+    for(i = 0, len = prevKeys.length; i < len; i++){
+        const key = prevKeys[i];
+        if (!key || key === "undefined" || value[key]) continue;
+        toggleClassKey(node, key, false);
+        delete prev[key];
+    }
+    for(i = 0, len = classKeys.length; i < len; i++){
+        const key = classKeys[i], classValue = !!value[key];
+        if (!key || key === "undefined" || prev[key] === classValue || !classValue) continue;
+        toggleClassKey(node, key, true);
+        prev[key] = classValue;
+    }
+    return prev;
+}
+function style(node, value, prev) {
+    if (!value) return prev ? setAttribute(node, "style") : value;
+    const nodeStyle = node.style;
+    if (typeof value === "string") return nodeStyle.cssText = value;
+    typeof prev === "string" && (nodeStyle.cssText = prev = undefined);
+    prev || (prev = {});
+    value || (value = {});
+    let v, s;
+    for(s in prev){
+        value[s] == null && nodeStyle.removeProperty(s);
+        delete prev[s];
+    }
+    for(s in value){
+        v = value[s];
+        if (v !== prev[s]) {
+            nodeStyle.setProperty(s, v);
+            prev[s] = v;
+        }
+    }
+    return prev;
+}
+function spread(node, props = {}, isSVG, skipChildren) {
+    const prevProps = {};
+    if (!skipChildren) (0, _solidJs.createRenderEffect)(()=>prevProps.children = insertExpression(node, props.children, prevProps.children));
+    (0, _solidJs.createRenderEffect)(()=>props.ref && props.ref(node));
+    (0, _solidJs.createRenderEffect)(()=>assign(node, props, isSVG, true, prevProps, true));
+    return prevProps;
+}
+function dynamicProperty(props, key) {
+    const src = props[key];
+    Object.defineProperty(props, key, {
+        get () {
+            return src();
+        },
+        enumerable: true
+    });
+    return props;
+}
+function innerHTML(parent, content) {
+    !(0, _solidJs.sharedConfig).context && (parent.innerHTML = content);
+}
+function use(fn, element, arg) {
+    return (0, _solidJs.untrack)(()=>fn(element, arg));
+}
+function insert(parent, accessor, marker, initial) {
+    if (marker !== undefined && !initial) initial = [];
+    if (typeof accessor !== "function") return insertExpression(parent, accessor, initial, marker);
+    (0, _solidJs.createRenderEffect)((current)=>insertExpression(parent, accessor(), current, marker), initial);
+}
+function assign(node, props, isSVG, skipChildren, prevProps = {}, skipRef = false) {
+    props || (props = {});
+    for(const prop in prevProps)if (!(prop in props)) {
+        if (prop === "children") continue;
+        prevProps[prop] = assignProp(node, prop, null, prevProps[prop], isSVG, skipRef);
+    }
+    for(const prop in props){
+        if (prop === "children") {
+            if (!skipChildren) insertExpression(node, props.children);
+            continue;
+        }
+        const value = props[prop];
+        prevProps[prop] = assignProp(node, prop, value, prevProps[prop], isSVG, skipRef);
+    }
+}
+function hydrate$1(code, element, options = {}) {
+    (0, _solidJs.sharedConfig).completed = globalThis._$HY.completed;
+    (0, _solidJs.sharedConfig).events = globalThis._$HY.events;
+    (0, _solidJs.sharedConfig).load = globalThis._$HY.load;
+    (0, _solidJs.sharedConfig).gather = (root)=>gatherHydratable(element, root);
+    (0, _solidJs.sharedConfig).registry = new Map();
+    (0, _solidJs.sharedConfig).context = {
+        id: options.renderId || "",
+        count: 0
+    };
+    gatherHydratable(element, options.renderId);
+    const dispose = render(code, element, [
+        ...element.childNodes
+    ], options);
+    (0, _solidJs.sharedConfig).context = null;
+    return dispose;
+}
+function getNextElement(template) {
+    let node, key;
+    if (!(0, _solidJs.sharedConfig).context || !(node = (0, _solidJs.sharedConfig).registry.get(key = getHydrationKey()))) {
+        if ((0, _solidJs.sharedConfig).context) console.warn("Unable to find DOM nodes for hydration key:", key);
+        if (!template) throw new Error("Unrecoverable Hydration Mismatch. No template for key: " + key);
+        return template();
+    }
+    if ((0, _solidJs.sharedConfig).completed) (0, _solidJs.sharedConfig).completed.add(node);
+    (0, _solidJs.sharedConfig).registry.delete(key);
+    return node;
+}
+function getNextMatch(el, nodeName) {
+    while(el && el.localName !== nodeName)el = el.nextSibling;
+    return el;
+}
+function getNextMarker(start) {
+    let end = start, count = 0, current = [];
+    if ((0, _solidJs.sharedConfig).context) while(end){
+        if (end.nodeType === 8) {
+            const v = end.nodeValue;
+            if (v === "#") count++;
+            else if (v === "/") {
+                if (count === 0) return [
+                    end,
+                    current
+                ];
+                count--;
+            }
+        }
+        current.push(end);
+        end = end.nextSibling;
+    }
+    return [
+        end,
+        current
+    ];
+}
+function runHydrationEvents() {
+    if ((0, _solidJs.sharedConfig).events && !(0, _solidJs.sharedConfig).events.queued) {
+        queueMicrotask(()=>{
+            const { completed , events  } = (0, _solidJs.sharedConfig);
+            events.queued = false;
+            while(events.length){
+                const [el, e] = events[0];
+                if (!completed.has(el)) return;
+                eventHandler(e);
+                events.shift();
+            }
+        });
+        (0, _solidJs.sharedConfig).events.queued = true;
+    }
+}
+function toPropertyName(name) {
+    return name.toLowerCase().replace(/-([a-z])/g, (_, w)=>w.toUpperCase());
+}
+function toggleClassKey(node, key, value) {
+    const classNames = key.trim().split(/\s+/);
+    for(let i = 0, nameLen = classNames.length; i < nameLen; i++)node.classList.toggle(classNames[i], value);
+}
+function assignProp(node, prop, value, prev, isSVG, skipRef) {
+    let isCE, isProp, isChildProp, propAlias, forceProp;
+    if (prop === "style") return style(node, value, prev);
+    if (prop === "classList") return classList(node, value, prev);
+    if (value === prev) return prev;
+    if (prop === "ref") {
+        if (!skipRef) value(node);
+    } else if (prop.slice(0, 3) === "on:") {
+        const e = prop.slice(3);
+        prev && node.removeEventListener(e, prev);
+        value && node.addEventListener(e, value);
+    } else if (prop.slice(0, 10) === "oncapture:") {
+        const e = prop.slice(10);
+        prev && node.removeEventListener(e, prev, true);
+        value && node.addEventListener(e, value, true);
+    } else if (prop.slice(0, 2) === "on") {
+        const name = prop.slice(2).toLowerCase();
+        const delegate = DelegatedEvents.has(name);
+        if (!delegate && prev) {
+            const h = Array.isArray(prev) ? prev[0] : prev;
+            node.removeEventListener(name, h);
+        }
+        if (delegate || value) {
+            addEventListener(node, name, value, delegate);
+            delegate && delegateEvents([
+                name
+            ]);
+        }
+    } else if (prop.slice(0, 5) === "attr:") setAttribute(node, prop.slice(5), value);
+    else if ((forceProp = prop.slice(0, 5) === "prop:") || (isChildProp = ChildProperties.has(prop)) || !isSVG && ((propAlias = getPropAlias(prop, node.tagName)) || (isProp = Properties.has(prop))) || (isCE = node.nodeName.includes("-"))) {
+        if (forceProp) {
+            prop = prop.slice(5);
+            isProp = true;
+        }
+        if (prop === "class" || prop === "className") className(node, value);
+        else if (isCE && !isProp && !isChildProp) node[toPropertyName(prop)] = value;
+        else node[propAlias || prop] = value;
+    } else {
+        const ns = isSVG && prop.indexOf(":") > -1 && SVGNamespace[prop.split(":")[0]];
+        if (ns) setAttributeNS(node, ns, prop, value);
+        else setAttribute(node, Aliases[prop] || prop, value);
+    }
+    return value;
+}
+function eventHandler(e) {
+    const key = `$$${e.type}`;
+    let node = e.composedPath && e.composedPath()[0] || e.target;
+    if (e.target !== node) Object.defineProperty(e, "target", {
+        configurable: true,
+        value: node
+    });
+    Object.defineProperty(e, "currentTarget", {
+        configurable: true,
+        get () {
+            return node || document;
+        }
+    });
+    if ((0, _solidJs.sharedConfig).registry && !(0, _solidJs.sharedConfig).done) (0, _solidJs.sharedConfig).done = _$HY.done = true;
+    while(node){
+        const handler = node[key];
+        if (handler && !node.disabled) {
+            const data = node[`${key}Data`];
+            data !== undefined ? handler.call(node, data, e) : handler.call(node, e);
+            if (e.cancelBubble) return;
+        }
+        node = node._$host || node.parentNode || node.host;
+    }
+}
+function insertExpression(parent, value, current, marker, unwrapArray) {
+    if ((0, _solidJs.sharedConfig).context) {
+        !current && (current = [
+            ...parent.childNodes
+        ]);
+        let cleaned = [];
+        for(let i = 0; i < current.length; i++){
+            const node = current[i];
+            if (node.nodeType === 8 && node.data.slice(0, 2) === "!$") node.remove();
+            else cleaned.push(node);
+        }
+        current = cleaned;
+    }
+    while(typeof current === "function")current = current();
+    if (value === current) return current;
+    const t = typeof value, multi = marker !== undefined;
+    parent = multi && current[0] && current[0].parentNode || parent;
+    if (t === "string" || t === "number") {
+        if ((0, _solidJs.sharedConfig).context) return current;
+        if (t === "number") value = value.toString();
+        if (multi) {
+            let node = current[0];
+            if (node && node.nodeType === 3) node.data = value;
+            else node = document.createTextNode(value);
+            current = cleanChildren(parent, current, marker, node);
+        } else if (current !== "" && typeof current === "string") current = parent.firstChild.data = value;
+        else current = parent.textContent = value;
+    } else if (value == null || t === "boolean") {
+        if ((0, _solidJs.sharedConfig).context) return current;
+        current = cleanChildren(parent, current, marker);
+    } else if (t === "function") {
+        (0, _solidJs.createRenderEffect)(()=>{
+            let v = value();
+            while(typeof v === "function")v = v();
+            current = insertExpression(parent, v, current, marker);
+        });
+        return ()=>current;
+    } else if (Array.isArray(value)) {
+        const array = [];
+        const currentArray = current && Array.isArray(current);
+        if (normalizeIncomingArray(array, value, current, unwrapArray)) {
+            (0, _solidJs.createRenderEffect)(()=>current = insertExpression(parent, array, current, marker, true));
+            return ()=>current;
+        }
+        if ((0, _solidJs.sharedConfig).context) {
+            if (!array.length) return current;
+            for(let i = 0; i < array.length; i++){
+                if (array[i].parentNode) return current = array;
+            }
+        }
+        if (array.length === 0) {
+            current = cleanChildren(parent, current, marker);
+            if (multi) return current;
+        } else if (currentArray) {
+            if (current.length === 0) appendNodes(parent, array, marker);
+            else reconcileArrays(parent, current, array);
+        } else {
+            current && cleanChildren(parent);
+            appendNodes(parent, array);
+        }
+        current = array;
+    } else if (value instanceof Node) {
+        if ((0, _solidJs.sharedConfig).context && value.parentNode) return current = multi ? [
+            value
+        ] : value;
+        if (Array.isArray(current)) {
+            if (multi) return current = cleanChildren(parent, current, marker, value);
+            cleanChildren(parent, current, null, value);
+        } else if (current == null || current === "" || !parent.firstChild) parent.appendChild(value);
+        else parent.replaceChild(value, parent.firstChild);
+        current = value;
+    } else console.warn(`Unrecognized value. Skipped inserting`, value);
+    return current;
+}
+function normalizeIncomingArray(normalized, array, current, unwrap) {
+    let dynamic = false;
+    for(let i = 0, len = array.length; i < len; i++){
+        let item = array[i], prev = current && current[i];
+        if (item instanceof Node) normalized.push(item);
+        else if (item == null || item === true || item === false) ;
+        else if (Array.isArray(item)) dynamic = normalizeIncomingArray(normalized, item, prev) || dynamic;
+        else if (typeof item === "function") {
+            if (unwrap) {
+                while(typeof item === "function")item = item();
+                dynamic = normalizeIncomingArray(normalized, Array.isArray(item) ? item : [
+                    item
+                ], Array.isArray(prev) ? prev : [
+                    prev
+                ]) || dynamic;
+            } else {
+                normalized.push(item);
+                dynamic = true;
+            }
+        } else {
+            const value = String(item);
+            if (prev && prev.nodeType === 3) {
+                prev.data = value;
+                normalized.push(prev);
+            } else normalized.push(document.createTextNode(value));
+        }
+    }
+    return dynamic;
+}
+function appendNodes(parent, array, marker = null) {
+    for(let i = 0, len = array.length; i < len; i++)parent.insertBefore(array[i], marker);
+}
+function cleanChildren(parent, current, marker, replacement) {
+    if (marker === undefined) return parent.textContent = "";
+    const node = replacement || document.createTextNode("");
+    if (current.length) {
+        let inserted = false;
+        for(let i = current.length - 1; i >= 0; i--){
+            const el = current[i];
+            if (node !== el) {
+                const isParent = el.parentNode === parent;
+                if (!inserted && !i) isParent ? parent.replaceChild(node, el) : parent.insertBefore(node, marker);
+                else isParent && el.remove();
+            } else inserted = true;
+        }
+    } else parent.insertBefore(node, marker);
+    return [
+        node
+    ];
+}
+function gatherHydratable(element, root) {
+    const templates = element.querySelectorAll(`*[data-hk]`);
+    for(let i = 0; i < templates.length; i++){
+        const node = templates[i];
+        const key = node.getAttribute("data-hk");
+        if ((!root || key.startsWith(root)) && !(0, _solidJs.sharedConfig).registry.has(key)) (0, _solidJs.sharedConfig).registry.set(key, node);
+    }
+}
+function getHydrationKey() {
+    const hydrate = (0, _solidJs.sharedConfig).context;
+    return `${hydrate.id}${hydrate.count++}`;
+}
+function NoHydration(props) {
+    return (0, _solidJs.sharedConfig).context ? undefined : props.children;
+}
+function Hydration(props) {
+    return props.children;
+}
+function voidFn() {}
+function throwInBrowser(func) {
+    const err = new Error(`${func.name} is not supported in the browser, returning undefined`);
+    console.error(err);
+}
+function renderToString(fn, options) {
+    throwInBrowser(renderToString);
+}
+function renderToStringAsync(fn, options) {
+    throwInBrowser(renderToStringAsync);
+}
+function renderToStream(fn, options) {
+    throwInBrowser(renderToStream);
+}
+function ssr(template, ...nodes) {}
+function ssrElement(name, props, children, needsId) {}
+function ssrClassList(value) {}
+function ssrStyle(value) {}
+function ssrAttribute(key, value) {}
+function ssrHydrationKey() {}
+function resolveSSRNode(node) {}
+function escape(html) {}
+function ssrSpread(props, isSVG, skipChildren) {}
+const isServer = false;
+const isDev = false;
+const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
+function createElement(tagName, isSVG = false) {
+    return isSVG ? document.createElementNS(SVG_NAMESPACE, tagName) : document.createElement(tagName);
+}
+const hydrate = (...args)=>{
+    (0, _solidJs.enableHydration)();
+    return hydrate$1(...args);
+};
+function Portal(props) {
+    const { useShadow  } = props, marker = document.createTextNode(""), mount = ()=>props.mount || document.body, owner = (0, _solidJs.getOwner)();
+    let content;
+    (0, _solidJs.createEffect)(()=>{
+        content || (content = (0, _solidJs.runWithOwner)(owner, ()=>props.children));
+        const el = mount();
+        if (el instanceof HTMLHeadElement) {
+            const [clean, setClean] = (0, _solidJs.createSignal)(false);
+            const cleanup = ()=>setClean(true);
+            (0, _solidJs.createRoot)((dispose)=>insert(el, ()=>!clean() ? content : dispose(), null));
+            (0, _solidJs.onCleanup)(cleanup);
+        } else {
+            const container = createElement(props.isSVG ? "g" : "div", props.isSVG), renderRoot = useShadow && container.attachShadow ? container.attachShadow({
+                mode: "open"
+            }) : container;
+            Object.defineProperty(container, "_$host", {
+                get () {
+                    return marker.parentNode;
+                },
+                configurable: true
+            });
+            insert(renderRoot, content);
+            el.appendChild(container);
+            props.ref && props.ref(container);
+            (0, _solidJs.onCleanup)(()=>el.removeChild(container));
+        }
+    });
+    return marker;
+}
+function Dynamic(props) {
+    const [p, others] = (0, _solidJs.splitProps)(props, [
+        "component"
+    ]);
+    const cached = (0, _solidJs.createMemo)(()=>p.component);
+    return (0, _solidJs.createMemo)(()=>{
+        const component = cached();
+        switch(typeof component){
+            case "function":
+                Object.assign(component, {
+                    [(0, _solidJs.$DEVCOMP)]: true
+                });
+                return (0, _solidJs.untrack)(()=>component(others));
+            case "string":
+                const isSvg = SVGElements.has(component);
+                const el = (0, _solidJs.sharedConfig).context ? getNextElement() : createElement(component, isSvg);
+                spread(el, others, isSvg);
+                return el;
+        }
+    });
+}
 
-},{"../packages/core":"cJ4bM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cJ4bM":[function(require,module,exports) {
+},{"solid-js":"5aELA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5aELA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "$DEVCOMP", ()=>$DEVCOMP);
+parcelHelpers.export(exports, "$PROXY", ()=>$PROXY);
+parcelHelpers.export(exports, "$TRACK", ()=>$TRACK);
+parcelHelpers.export(exports, "DEV", ()=>DEV);
+parcelHelpers.export(exports, "ErrorBoundary", ()=>ErrorBoundary);
+parcelHelpers.export(exports, "For", ()=>For);
+parcelHelpers.export(exports, "Index", ()=>Index);
+parcelHelpers.export(exports, "Match", ()=>Match);
+parcelHelpers.export(exports, "Show", ()=>Show);
+parcelHelpers.export(exports, "Suspense", ()=>Suspense);
+parcelHelpers.export(exports, "SuspenseList", ()=>SuspenseList);
+parcelHelpers.export(exports, "Switch", ()=>Switch);
+parcelHelpers.export(exports, "batch", ()=>batch);
+parcelHelpers.export(exports, "cancelCallback", ()=>cancelCallback);
+parcelHelpers.export(exports, "catchError", ()=>catchError);
+parcelHelpers.export(exports, "children", ()=>children);
+parcelHelpers.export(exports, "createComponent", ()=>createComponent);
+parcelHelpers.export(exports, "createComputed", ()=>createComputed);
+parcelHelpers.export(exports, "createContext", ()=>createContext);
+parcelHelpers.export(exports, "createDeferred", ()=>createDeferred);
+parcelHelpers.export(exports, "createEffect", ()=>createEffect);
+parcelHelpers.export(exports, "createMemo", ()=>createMemo);
+parcelHelpers.export(exports, "createReaction", ()=>createReaction);
+parcelHelpers.export(exports, "createRenderEffect", ()=>createRenderEffect);
+parcelHelpers.export(exports, "createResource", ()=>createResource);
+parcelHelpers.export(exports, "createRoot", ()=>createRoot);
+parcelHelpers.export(exports, "createSelector", ()=>createSelector);
+parcelHelpers.export(exports, "createSignal", ()=>createSignal);
+parcelHelpers.export(exports, "createUniqueId", ()=>createUniqueId);
+parcelHelpers.export(exports, "enableExternalSource", ()=>enableExternalSource);
+parcelHelpers.export(exports, "enableHydration", ()=>enableHydration);
+parcelHelpers.export(exports, "enableScheduling", ()=>enableScheduling);
+parcelHelpers.export(exports, "equalFn", ()=>equalFn);
+parcelHelpers.export(exports, "from", ()=>from);
+parcelHelpers.export(exports, "getListener", ()=>getListener);
+parcelHelpers.export(exports, "getOwner", ()=>getOwner);
+parcelHelpers.export(exports, "indexArray", ()=>indexArray);
+parcelHelpers.export(exports, "lazy", ()=>lazy);
+parcelHelpers.export(exports, "mapArray", ()=>mapArray);
+parcelHelpers.export(exports, "mergeProps", ()=>mergeProps);
+parcelHelpers.export(exports, "observable", ()=>observable);
+parcelHelpers.export(exports, "on", ()=>on);
+parcelHelpers.export(exports, "onCleanup", ()=>onCleanup);
+parcelHelpers.export(exports, "onError", ()=>onError);
+parcelHelpers.export(exports, "onMount", ()=>onMount);
+parcelHelpers.export(exports, "requestCallback", ()=>requestCallback);
+parcelHelpers.export(exports, "resetErrorBoundaries", ()=>resetErrorBoundaries);
+parcelHelpers.export(exports, "runWithOwner", ()=>runWithOwner);
+parcelHelpers.export(exports, "sharedConfig", ()=>sharedConfig);
+parcelHelpers.export(exports, "splitProps", ()=>splitProps);
+parcelHelpers.export(exports, "startTransition", ()=>startTransition);
+parcelHelpers.export(exports, "untrack", ()=>untrack);
+parcelHelpers.export(exports, "useContext", ()=>useContext);
+parcelHelpers.export(exports, "useTransition", ()=>useTransition);
+let taskIdCounter = 1, isCallbackScheduled = false, isPerformingWork = false, taskQueue = [], currentTask = null, shouldYieldToHost = null, yieldInterval = 5, deadline = 0, maxYieldInterval = 300, scheduleCallback = null, scheduledCallback = null;
+const maxSigned31BitInt = 1073741823;
+function setupScheduler() {
+    const channel = new MessageChannel(), port = channel.port2;
+    scheduleCallback = ()=>port.postMessage(null);
+    channel.port1.onmessage = ()=>{
+        if (scheduledCallback !== null) {
+            const currentTime = performance.now();
+            deadline = currentTime + yieldInterval;
+            const hasTimeRemaining = true;
+            try {
+                const hasMoreWork = scheduledCallback(hasTimeRemaining, currentTime);
+                if (!hasMoreWork) scheduledCallback = null;
+                else port.postMessage(null);
+            } catch (error) {
+                port.postMessage(null);
+                throw error;
+            }
+        }
+    };
+    if (navigator && navigator.scheduling && navigator.scheduling.isInputPending) {
+        const scheduling = navigator.scheduling;
+        shouldYieldToHost = ()=>{
+            const currentTime = performance.now();
+            if (currentTime >= deadline) {
+                if (scheduling.isInputPending()) return true;
+                return currentTime >= maxYieldInterval;
+            } else return false;
+        };
+    } else shouldYieldToHost = ()=>performance.now() >= deadline;
+}
+function enqueue(taskQueue, task) {
+    function findIndex() {
+        let m = 0;
+        let n = taskQueue.length - 1;
+        while(m <= n){
+            const k = n + m >> 1;
+            const cmp = task.expirationTime - taskQueue[k].expirationTime;
+            if (cmp > 0) m = k + 1;
+            else if (cmp < 0) n = k - 1;
+            else return k;
+        }
+        return m;
+    }
+    taskQueue.splice(findIndex(), 0, task);
+}
+function requestCallback(fn, options) {
+    if (!scheduleCallback) setupScheduler();
+    let startTime = performance.now(), timeout = maxSigned31BitInt;
+    if (options && options.timeout) timeout = options.timeout;
+    const newTask = {
+        id: taskIdCounter++,
+        fn,
+        startTime,
+        expirationTime: startTime + timeout
+    };
+    enqueue(taskQueue, newTask);
+    if (!isCallbackScheduled && !isPerformingWork) {
+        isCallbackScheduled = true;
+        scheduledCallback = flushWork;
+        scheduleCallback();
+    }
+    return newTask;
+}
+function cancelCallback(task) {
+    task.fn = null;
+}
+function flushWork(hasTimeRemaining, initialTime) {
+    isCallbackScheduled = false;
+    isPerformingWork = true;
+    try {
+        return workLoop(hasTimeRemaining, initialTime);
+    } finally{
+        currentTask = null;
+        isPerformingWork = false;
+    }
+}
+function workLoop(hasTimeRemaining, initialTime) {
+    let currentTime = initialTime;
+    currentTask = taskQueue[0] || null;
+    while(currentTask !== null){
+        if (currentTask.expirationTime > currentTime && (!hasTimeRemaining || shouldYieldToHost())) break;
+        const callback = currentTask.fn;
+        if (callback !== null) {
+            currentTask.fn = null;
+            const didUserCallbackTimeout = currentTask.expirationTime <= currentTime;
+            callback(didUserCallbackTimeout);
+            currentTime = performance.now();
+            if (currentTask === taskQueue[0]) taskQueue.shift();
+        } else taskQueue.shift();
+        currentTask = taskQueue[0] || null;
+    }
+    return currentTask !== null;
+}
+const sharedConfig = {
+    context: undefined,
+    registry: undefined
+};
+function setHydrateContext(context) {
+    sharedConfig.context = context;
+}
+function nextHydrateContext() {
+    return {
+        ...sharedConfig.context,
+        id: `${sharedConfig.context.id}${sharedConfig.context.count++}-`,
+        count: 0
+    };
+}
+const equalFn = (a, b)=>a === b;
+const $PROXY = Symbol("solid-proxy");
+const $TRACK = Symbol("solid-track");
+const $DEVCOMP = Symbol("solid-dev-component");
+const signalOptions = {
+    equals: equalFn
+};
+let ERROR = null;
+let runEffects = runQueue;
+const STALE = 1;
+const PENDING = 2;
+const UNOWNED = {
+    owned: null,
+    cleanups: null,
+    context: null,
+    owner: null
+};
+const NO_INIT = {};
+var Owner = null;
+let Transition = null;
+let Scheduler = null;
+let ExternalSourceFactory = null;
+let Listener = null;
+let Updates = null;
+let Effects = null;
+let ExecCount = 0;
+const [transPending, setTransPending] = /*@__PURE__*/ createSignal(false);
+function createRoot(fn, detachedOwner) {
+    const listener = Listener, owner = Owner, unowned = fn.length === 0, root = unowned ? UNOWNED : {
+        owned: null,
+        cleanups: null,
+        context: null,
+        owner: detachedOwner === undefined ? owner : detachedOwner
+    }, updateFn = unowned ? fn : ()=>fn(()=>untrack(()=>cleanNode(root)));
+    Owner = root;
+    Listener = null;
+    try {
+        return runUpdates(updateFn, true);
+    } finally{
+        Listener = listener;
+        Owner = owner;
+    }
+}
+function createSignal(value, options) {
+    options = options ? Object.assign({}, signalOptions, options) : signalOptions;
+    const s = {
+        value,
+        observers: null,
+        observerSlots: null,
+        comparator: options.equals || undefined
+    };
+    const setter = (value)=>{
+        if (typeof value === "function") {
+            if (Transition && Transition.running && Transition.sources.has(s)) value = value(s.tValue);
+            else value = value(s.value);
+        }
+        return writeSignal(s, value);
+    };
+    return [
+        readSignal.bind(s),
+        setter
+    ];
+}
+function createComputed(fn, value, options) {
+    const c = createComputation(fn, value, true, STALE);
+    if (Scheduler && Transition && Transition.running) Updates.push(c);
+    else updateComputation(c);
+}
+function createRenderEffect(fn, value, options) {
+    const c = createComputation(fn, value, false, STALE);
+    if (Scheduler && Transition && Transition.running) Updates.push(c);
+    else updateComputation(c);
+}
+function createEffect(fn, value, options) {
+    runEffects = runUserEffects;
+    const c = createComputation(fn, value, false, STALE), s = SuspenseContext && lookup(Owner, SuspenseContext.id);
+    if (s) c.suspense = s;
+    c.user = true;
+    Effects ? Effects.push(c) : updateComputation(c);
+}
+function createReaction(onInvalidate, options) {
+    let fn;
+    const c = createComputation(()=>{
+        fn ? fn() : untrack(onInvalidate);
+        fn = undefined;
+    }, undefined, false, 0), s = SuspenseContext && lookup(Owner, SuspenseContext.id);
+    if (s) c.suspense = s;
+    c.user = true;
+    return (tracking)=>{
+        fn = tracking;
+        updateComputation(c);
+    };
+}
+function createMemo(fn, value, options) {
+    options = options ? Object.assign({}, signalOptions, options) : signalOptions;
+    const c = createComputation(fn, value, true, 0);
+    c.observers = null;
+    c.observerSlots = null;
+    c.comparator = options.equals || undefined;
+    if (Scheduler && Transition && Transition.running) {
+        c.tState = STALE;
+        Updates.push(c);
+    } else updateComputation(c);
+    return readSignal.bind(c);
+}
+function createResource(pSource, pFetcher, pOptions) {
+    let source;
+    let fetcher;
+    let options;
+    if (arguments.length === 2 && typeof pFetcher === "object" || arguments.length === 1) {
+        source = true;
+        fetcher = pSource;
+        options = pFetcher || {};
+    } else {
+        source = pSource;
+        fetcher = pFetcher;
+        options = pOptions || {};
+    }
+    let pr = null, initP = NO_INIT, id = null, loadedUnderTransition = false, scheduled = false, resolved = "initialValue" in options, dynamic = typeof source === "function" && createMemo(source);
+    const contexts = new Set(), [value, setValue] = (options.storage || createSignal)(options.initialValue), [error, setError] = createSignal(undefined), [track, trigger] = createSignal(undefined, {
+        equals: false
+    }), [state, setState] = createSignal(resolved ? "ready" : "unresolved");
+    if (sharedConfig.context) {
+        id = `${sharedConfig.context.id}${sharedConfig.context.count++}`;
+        let v;
+        if (options.ssrLoadFrom === "initial") initP = options.initialValue;
+        else if (sharedConfig.load && (v = sharedConfig.load(id))) initP = v[0];
+    }
+    function loadEnd(p, v, error, key) {
+        if (pr === p) {
+            pr = null;
+            resolved = true;
+            if ((p === initP || v === initP) && options.onHydrated) queueMicrotask(()=>options.onHydrated(key, {
+                    value: v
+                }));
+            initP = NO_INIT;
+            if (Transition && p && loadedUnderTransition) {
+                Transition.promises.delete(p);
+                loadedUnderTransition = false;
+                runUpdates(()=>{
+                    Transition.running = true;
+                    completeLoad(v, error);
+                }, false);
+            } else completeLoad(v, error);
+        }
+        return v;
+    }
+    function completeLoad(v, err) {
+        runUpdates(()=>{
+            if (err === undefined) setValue(()=>v);
+            setState(err !== undefined ? "errored" : "ready");
+            setError(err);
+            for (const c of contexts.keys())c.decrement();
+            contexts.clear();
+        }, false);
+    }
+    function read() {
+        const c = SuspenseContext && lookup(Owner, SuspenseContext.id), v = value(), err = error();
+        if (err !== undefined && !pr) throw err;
+        if (Listener && !Listener.user && c) createComputed(()=>{
+            track();
+            if (pr) {
+                if (c.resolved && Transition && loadedUnderTransition) Transition.promises.add(pr);
+                else if (!contexts.has(c)) {
+                    c.increment();
+                    contexts.add(c);
+                }
+            }
+        });
+        return v;
+    }
+    function load(refetching = true) {
+        if (refetching !== false && scheduled) return;
+        scheduled = false;
+        const lookup = dynamic ? dynamic() : source;
+        loadedUnderTransition = Transition && Transition.running;
+        if (lookup == null || lookup === false) {
+            loadEnd(pr, untrack(value));
+            return;
+        }
+        if (Transition && pr) Transition.promises.delete(pr);
+        const p = initP !== NO_INIT ? initP : untrack(()=>fetcher(lookup, {
+                value: value(),
+                refetching
+            }));
+        if (typeof p !== "object" || !(p && "then" in p)) {
+            loadEnd(pr, p, undefined, lookup);
+            return p;
+        }
+        pr = p;
+        scheduled = true;
+        queueMicrotask(()=>scheduled = false);
+        runUpdates(()=>{
+            setState(resolved ? "refreshing" : "pending");
+            trigger();
+        }, false);
+        return p.then((v)=>loadEnd(p, v, undefined, lookup), (e)=>loadEnd(p, undefined, castError(e), lookup));
+    }
+    Object.defineProperties(read, {
+        state: {
+            get: ()=>state()
+        },
+        error: {
+            get: ()=>error()
+        },
+        loading: {
+            get () {
+                const s = state();
+                return s === "pending" || s === "refreshing";
+            }
+        },
+        latest: {
+            get () {
+                if (!resolved) return read();
+                const err = error();
+                if (err && !pr) throw err;
+                return value();
+            }
+        }
+    });
+    if (dynamic) createComputed(()=>load(false));
+    else load(false);
+    return [
+        read,
+        {
+            refetch: load,
+            mutate: setValue
+        }
+    ];
+}
+function createDeferred(source, options) {
+    let t, timeout = options ? options.timeoutMs : undefined;
+    const node = createComputation(()=>{
+        if (!t || !t.fn) t = requestCallback(()=>setDeferred(()=>node.value), timeout !== undefined ? {
+            timeout
+        } : undefined);
+        return source();
+    }, undefined, true);
+    const [deferred, setDeferred] = createSignal(node.value, options);
+    updateComputation(node);
+    setDeferred(()=>node.value);
+    return deferred;
+}
+function createSelector(source, fn = equalFn, options) {
+    const subs = new Map();
+    const node = createComputation((p)=>{
+        const v = source();
+        for (const [key, val] of subs.entries())if (fn(key, v) !== fn(key, p)) for (const c of val.values()){
+            c.state = STALE;
+            if (c.pure) Updates.push(c);
+            else Effects.push(c);
+        }
+        return v;
+    }, undefined, true, STALE);
+    updateComputation(node);
+    return (key)=>{
+        const listener = Listener;
+        if (listener) {
+            let l;
+            if (l = subs.get(key)) l.add(listener);
+            else subs.set(key, l = new Set([
+                listener
+            ]));
+            onCleanup(()=>{
+                l.delete(listener);
+                !l.size && subs.delete(key);
+            });
+        }
+        return fn(key, Transition && Transition.running && Transition.sources.has(node) ? node.tValue : node.value);
+    };
+}
+function batch(fn) {
+    return runUpdates(fn, false);
+}
+function untrack(fn) {
+    if (Listener === null) return fn();
+    const listener = Listener;
+    Listener = null;
+    try {
+        return fn();
+    } finally{
+        Listener = listener;
+    }
+}
+function on(deps, fn, options) {
+    const isArray = Array.isArray(deps);
+    let prevInput;
+    let defer = options && options.defer;
+    return (prevValue)=>{
+        let input;
+        if (isArray) {
+            input = Array(deps.length);
+            for(let i = 0; i < deps.length; i++)input[i] = deps[i]();
+        } else input = deps();
+        if (defer) {
+            defer = false;
+            return undefined;
+        }
+        const result = untrack(()=>fn(input, prevInput, prevValue));
+        prevInput = input;
+        return result;
+    };
+}
+function onMount(fn) {
+    createEffect(()=>untrack(fn));
+}
+function onCleanup(fn) {
+    if (Owner === null) ;
+    else if (Owner.cleanups === null) Owner.cleanups = [
+        fn
+    ];
+    else Owner.cleanups.push(fn);
+    return fn;
+}
+function catchError(fn, handler) {
+    ERROR || (ERROR = Symbol("error"));
+    Owner = createComputation(undefined, undefined, true);
+    Owner.context = {
+        [ERROR]: [
+            handler
+        ]
+    };
+    try {
+        return fn();
+    } catch (err) {
+        handleError(err);
+    } finally{
+        Owner = Owner.owner;
+    }
+}
+function onError(fn) {
+    ERROR || (ERROR = Symbol("error"));
+    if (Owner === null) ;
+    else if (Owner.context === null) Owner.context = {
+        [ERROR]: [
+            fn
+        ]
+    };
+    else if (!Owner.context[ERROR]) Owner.context[ERROR] = [
+        fn
+    ];
+    else Owner.context[ERROR].push(fn);
+}
+function getListener() {
+    return Listener;
+}
+function getOwner() {
+    return Owner;
+}
+function runWithOwner(o, fn) {
+    const prev = Owner;
+    const prevListener = Listener;
+    Owner = o;
+    Listener = null;
+    try {
+        return runUpdates(fn, true);
+    } catch (err) {
+        handleError(err);
+    } finally{
+        Owner = prev;
+        Listener = prevListener;
+    }
+}
+function enableScheduling(scheduler = requestCallback) {
+    Scheduler = scheduler;
+}
+function startTransition(fn) {
+    if (Transition && Transition.running) {
+        fn();
+        return Transition.done;
+    }
+    const l = Listener;
+    const o = Owner;
+    return Promise.resolve().then(()=>{
+        Listener = l;
+        Owner = o;
+        let t;
+        if (Scheduler || SuspenseContext) {
+            t = Transition || (Transition = {
+                sources: new Set(),
+                effects: [],
+                promises: new Set(),
+                disposed: new Set(),
+                queue: new Set(),
+                running: true
+            });
+            t.done || (t.done = new Promise((res)=>t.resolve = res));
+            t.running = true;
+        }
+        runUpdates(fn, false);
+        Listener = Owner = null;
+        return t ? t.done : undefined;
+    });
+}
+function useTransition() {
+    return [
+        transPending,
+        startTransition
+    ];
+}
+function resumeEffects(e) {
+    Effects.push.apply(Effects, e);
+    e.length = 0;
+}
+function createContext(defaultValue, options) {
+    const id = Symbol("context");
+    return {
+        id,
+        Provider: createProvider(id),
+        defaultValue
+    };
+}
+function useContext(context) {
+    let ctx;
+    return (ctx = lookup(Owner, context.id)) !== undefined ? ctx : context.defaultValue;
+}
+function children(fn) {
+    const children = createMemo(fn);
+    const memo = createMemo(()=>resolveChildren(children()));
+    memo.toArray = ()=>{
+        const c = memo();
+        return Array.isArray(c) ? c : c != null ? [
+            c
+        ] : [];
+    };
+    return memo;
+}
+let SuspenseContext;
+function getSuspenseContext() {
+    return SuspenseContext || (SuspenseContext = createContext({}));
+}
+function enableExternalSource(factory) {
+    if (ExternalSourceFactory) {
+        const oldFactory = ExternalSourceFactory;
+        ExternalSourceFactory = (fn, trigger)=>{
+            const oldSource = oldFactory(fn, trigger);
+            const source = factory((x)=>oldSource.track(x), trigger);
+            return {
+                track: (x)=>source.track(x),
+                dispose () {
+                    source.dispose();
+                    oldSource.dispose();
+                }
+            };
+        };
+    } else ExternalSourceFactory = factory;
+}
+function readSignal() {
+    const runningTransition = Transition && Transition.running;
+    if (this.sources && (runningTransition ? this.tState : this.state)) {
+        if ((runningTransition ? this.tState : this.state) === STALE) updateComputation(this);
+        else {
+            const updates = Updates;
+            Updates = null;
+            runUpdates(()=>lookUpstream(this), false);
+            Updates = updates;
+        }
+    }
+    if (Listener) {
+        const sSlot = this.observers ? this.observers.length : 0;
+        if (!Listener.sources) {
+            Listener.sources = [
+                this
+            ];
+            Listener.sourceSlots = [
+                sSlot
+            ];
+        } else {
+            Listener.sources.push(this);
+            Listener.sourceSlots.push(sSlot);
+        }
+        if (!this.observers) {
+            this.observers = [
+                Listener
+            ];
+            this.observerSlots = [
+                Listener.sources.length - 1
+            ];
+        } else {
+            this.observers.push(Listener);
+            this.observerSlots.push(Listener.sources.length - 1);
+        }
+    }
+    if (runningTransition && Transition.sources.has(this)) return this.tValue;
+    return this.value;
+}
+function writeSignal(node, value, isComp) {
+    let current = Transition && Transition.running && Transition.sources.has(node) ? node.tValue : node.value;
+    if (!node.comparator || !node.comparator(current, value)) {
+        if (Transition) {
+            const TransitionRunning = Transition.running;
+            if (TransitionRunning || !isComp && Transition.sources.has(node)) {
+                Transition.sources.add(node);
+                node.tValue = value;
+            }
+            if (!TransitionRunning) node.value = value;
+        } else node.value = value;
+        if (node.observers && node.observers.length) runUpdates(()=>{
+            for(let i = 0; i < node.observers.length; i += 1){
+                const o = node.observers[i];
+                const TransitionRunning = Transition && Transition.running;
+                if (TransitionRunning && Transition.disposed.has(o)) continue;
+                if (TransitionRunning ? !o.tState : !o.state) {
+                    if (o.pure) Updates.push(o);
+                    else Effects.push(o);
+                    if (o.observers) markDownstream(o);
+                }
+                if (!TransitionRunning) o.state = STALE;
+                else o.tState = STALE;
+            }
+            if (Updates.length > 10e5) {
+                Updates = [];
+                throw new Error();
+            }
+        }, false);
+    }
+    return value;
+}
+function updateComputation(node) {
+    if (!node.fn) return;
+    cleanNode(node);
+    const owner = Owner, listener = Listener, time = ExecCount;
+    Listener = Owner = node;
+    runComputation(node, Transition && Transition.running && Transition.sources.has(node) ? node.tValue : node.value, time);
+    if (Transition && !Transition.running && Transition.sources.has(node)) queueMicrotask(()=>{
+        runUpdates(()=>{
+            Transition && (Transition.running = true);
+            Listener = Owner = node;
+            runComputation(node, node.tValue, time);
+            Listener = Owner = null;
+        }, false);
+    });
+    Listener = listener;
+    Owner = owner;
+}
+function runComputation(node, value, time) {
+    let nextValue;
+    try {
+        nextValue = node.fn(value);
+    } catch (err) {
+        if (node.pure) {
+            if (Transition && Transition.running) {
+                node.tState = STALE;
+                node.tOwned && node.tOwned.forEach(cleanNode);
+                node.tOwned = undefined;
+            } else {
+                node.state = STALE;
+                node.owned && node.owned.forEach(cleanNode);
+                node.owned = null;
+            }
+        }
+        node.updatedAt = time + 1;
+        return handleError(err);
+    }
+    if (!node.updatedAt || node.updatedAt <= time) {
+        if (node.updatedAt != null && "observers" in node) writeSignal(node, nextValue, true);
+        else if (Transition && Transition.running && node.pure) {
+            Transition.sources.add(node);
+            node.tValue = nextValue;
+        } else node.value = nextValue;
+        node.updatedAt = time;
+    }
+}
+function createComputation(fn, init, pure, state = STALE, options) {
+    const c = {
+        fn,
+        state: state,
+        updatedAt: null,
+        owned: null,
+        sources: null,
+        sourceSlots: null,
+        cleanups: null,
+        value: init,
+        owner: Owner,
+        context: null,
+        pure
+    };
+    if (Transition && Transition.running) {
+        c.state = 0;
+        c.tState = state;
+    }
+    if (Owner === null) ;
+    else if (Owner !== UNOWNED) {
+        if (Transition && Transition.running && Owner.pure) {
+            if (!Owner.tOwned) Owner.tOwned = [
+                c
+            ];
+            else Owner.tOwned.push(c);
+        } else if (!Owner.owned) Owner.owned = [
+            c
+        ];
+        else Owner.owned.push(c);
+    }
+    if (ExternalSourceFactory) {
+        const [track, trigger] = createSignal(undefined, {
+            equals: false
+        });
+        const ordinary = ExternalSourceFactory(c.fn, trigger);
+        onCleanup(()=>ordinary.dispose());
+        const triggerInTransition = ()=>startTransition(trigger).then(()=>inTransition.dispose());
+        const inTransition = ExternalSourceFactory(c.fn, triggerInTransition);
+        c.fn = (x)=>{
+            track();
+            return Transition && Transition.running ? inTransition.track(x) : ordinary.track(x);
+        };
+    }
+    return c;
+}
+function runTop(node) {
+    const runningTransition = Transition && Transition.running;
+    if ((runningTransition ? node.tState : node.state) === 0) return;
+    if ((runningTransition ? node.tState : node.state) === PENDING) return lookUpstream(node);
+    if (node.suspense && untrack(node.suspense.inFallback)) return node.suspense.effects.push(node);
+    const ancestors = [
+        node
+    ];
+    while((node = node.owner) && (!node.updatedAt || node.updatedAt < ExecCount)){
+        if (runningTransition && Transition.disposed.has(node)) return;
+        if (runningTransition ? node.tState : node.state) ancestors.push(node);
+    }
+    for(let i = ancestors.length - 1; i >= 0; i--){
+        node = ancestors[i];
+        if (runningTransition) {
+            let top = node, prev = ancestors[i + 1];
+            while((top = top.owner) && top !== prev){
+                if (Transition.disposed.has(top)) return;
+            }
+        }
+        if ((runningTransition ? node.tState : node.state) === STALE) updateComputation(node);
+        else if ((runningTransition ? node.tState : node.state) === PENDING) {
+            const updates = Updates;
+            Updates = null;
+            runUpdates(()=>lookUpstream(node, ancestors[0]), false);
+            Updates = updates;
+        }
+    }
+}
+function runUpdates(fn, init) {
+    if (Updates) return fn();
+    let wait = false;
+    if (!init) Updates = [];
+    if (Effects) wait = true;
+    else Effects = [];
+    ExecCount++;
+    try {
+        const res = fn();
+        completeUpdates(wait);
+        return res;
+    } catch (err) {
+        if (!wait) Effects = null;
+        Updates = null;
+        handleError(err);
+    }
+}
+function completeUpdates(wait) {
+    if (Updates) {
+        if (Scheduler && Transition && Transition.running) scheduleQueue(Updates);
+        else runQueue(Updates);
+        Updates = null;
+    }
+    if (wait) return;
+    let res;
+    if (Transition) {
+        if (!Transition.promises.size && !Transition.queue.size) {
+            const sources = Transition.sources;
+            const disposed = Transition.disposed;
+            Effects.push.apply(Effects, Transition.effects);
+            res = Transition.resolve;
+            for (const e of Effects){
+                "tState" in e && (e.state = e.tState);
+                delete e.tState;
+            }
+            Transition = null;
+            runUpdates(()=>{
+                for (const d of disposed)cleanNode(d);
+                for (const v of sources){
+                    v.value = v.tValue;
+                    if (v.owned) for(let i = 0, len = v.owned.length; i < len; i++)cleanNode(v.owned[i]);
+                    if (v.tOwned) v.owned = v.tOwned;
+                    delete v.tValue;
+                    delete v.tOwned;
+                    v.tState = 0;
+                }
+                setTransPending(false);
+            }, false);
+        } else if (Transition.running) {
+            Transition.running = false;
+            Transition.effects.push.apply(Transition.effects, Effects);
+            Effects = null;
+            setTransPending(true);
+            return;
+        }
+    }
+    const e = Effects;
+    Effects = null;
+    if (e.length) runUpdates(()=>runEffects(e), false);
+    if (res) res();
+}
+function runQueue(queue) {
+    for(let i = 0; i < queue.length; i++)runTop(queue[i]);
+}
+function scheduleQueue(queue) {
+    for(let i = 0; i < queue.length; i++){
+        const item = queue[i];
+        const tasks = Transition.queue;
+        if (!tasks.has(item)) {
+            tasks.add(item);
+            Scheduler(()=>{
+                tasks.delete(item);
+                runUpdates(()=>{
+                    Transition.running = true;
+                    runTop(item);
+                }, false);
+                Transition && (Transition.running = false);
+            });
+        }
+    }
+}
+function runUserEffects(queue) {
+    let i, userLength = 0;
+    for(i = 0; i < queue.length; i++){
+        const e = queue[i];
+        if (!e.user) runTop(e);
+        else queue[userLength++] = e;
+    }
+    if (sharedConfig.context) setHydrateContext();
+    for(i = 0; i < userLength; i++)runTop(queue[i]);
+}
+function lookUpstream(node, ignore) {
+    const runningTransition = Transition && Transition.running;
+    if (runningTransition) node.tState = 0;
+    else node.state = 0;
+    for(let i = 0; i < node.sources.length; i += 1){
+        const source = node.sources[i];
+        if (source.sources) {
+            const state = runningTransition ? source.tState : source.state;
+            if (state === STALE) {
+                if (source !== ignore && (!source.updatedAt || source.updatedAt < ExecCount)) runTop(source);
+            } else if (state === PENDING) lookUpstream(source, ignore);
+        }
+    }
+}
+function markDownstream(node) {
+    const runningTransition = Transition && Transition.running;
+    for(let i = 0; i < node.observers.length; i += 1){
+        const o = node.observers[i];
+        if (runningTransition ? !o.tState : !o.state) {
+            if (runningTransition) o.tState = PENDING;
+            else o.state = PENDING;
+            if (o.pure) Updates.push(o);
+            else Effects.push(o);
+            o.observers && markDownstream(o);
+        }
+    }
+}
+function cleanNode(node) {
+    let i;
+    if (node.sources) while(node.sources.length){
+        const source = node.sources.pop(), index = node.sourceSlots.pop(), obs = source.observers;
+        if (obs && obs.length) {
+            const n = obs.pop(), s = source.observerSlots.pop();
+            if (index < obs.length) {
+                n.sourceSlots[s] = index;
+                obs[index] = n;
+                source.observerSlots[index] = s;
+            }
+        }
+    }
+    if (Transition && Transition.running && node.pure) {
+        if (node.tOwned) {
+            for(i = node.tOwned.length - 1; i >= 0; i--)cleanNode(node.tOwned[i]);
+            delete node.tOwned;
+        }
+        reset(node, true);
+    } else if (node.owned) {
+        for(i = node.owned.length - 1; i >= 0; i--)cleanNode(node.owned[i]);
+        node.owned = null;
+    }
+    if (node.cleanups) {
+        for(i = node.cleanups.length - 1; i >= 0; i--)node.cleanups[i]();
+        node.cleanups = null;
+    }
+    if (Transition && Transition.running) node.tState = 0;
+    else node.state = 0;
+    node.context = null;
+}
+function reset(node, top) {
+    if (!top) {
+        node.tState = 0;
+        Transition.disposed.add(node);
+    }
+    if (node.owned) for(let i = 0; i < node.owned.length; i++)reset(node.owned[i]);
+}
+function castError(err) {
+    if (err instanceof Error) return err;
+    return new Error(typeof err === "string" ? err : "Unknown error", {
+        cause: err
+    });
+}
+function runErrors(fns, err) {
+    for (const f of fns)f(err);
+}
+function handleError(err) {
+    const fns = ERROR && lookup(Owner, ERROR);
+    if (!fns) throw err;
+    const error = castError(err);
+    if (Effects) Effects.push({
+        fn () {
+            runErrors(fns, error);
+        },
+        state: STALE
+    });
+    else runErrors(fns, error);
+}
+function lookup(owner, key) {
+    return owner ? owner.context && owner.context[key] !== undefined ? owner.context[key] : lookup(owner.owner, key) : undefined;
+}
+function resolveChildren(children) {
+    if (typeof children === "function" && !children.length) return resolveChildren(children());
+    if (Array.isArray(children)) {
+        const results = [];
+        for(let i = 0; i < children.length; i++){
+            const result = resolveChildren(children[i]);
+            Array.isArray(result) ? results.push.apply(results, result) : results.push(result);
+        }
+        return results;
+    }
+    return children;
+}
+function createProvider(id, options) {
+    return function provider(props) {
+        let res;
+        createRenderEffect(()=>res = untrack(()=>{
+                Owner.context = {
+                    [id]: props.value
+                };
+                return children(()=>props.children);
+            }), undefined);
+        return res;
+    };
+}
+function observable(input) {
+    return {
+        subscribe (observer) {
+            if (!(observer instanceof Object) || observer == null) throw new TypeError("Expected the observer to be an object.");
+            const handler = typeof observer === "function" ? observer : observer.next && observer.next.bind(observer);
+            if (!handler) return {
+                unsubscribe () {}
+            };
+            const dispose = createRoot((disposer)=>{
+                createEffect(()=>{
+                    const v = input();
+                    untrack(()=>handler(v));
+                });
+                return disposer;
+            });
+            if (getOwner()) onCleanup(dispose);
+            return {
+                unsubscribe () {
+                    dispose();
+                }
+            };
+        },
+        [Symbol.observable || "@@observable"] () {
+            return this;
+        }
+    };
+}
+function from(producer) {
+    const [s, set] = createSignal(undefined, {
+        equals: false
+    });
+    if ("subscribe" in producer) {
+        const unsub = producer.subscribe((v)=>set(()=>v));
+        onCleanup(()=>"unsubscribe" in unsub ? unsub.unsubscribe() : unsub());
+    } else {
+        const clean = producer(set);
+        onCleanup(clean);
+    }
+    return s;
+}
+const FALLBACK = Symbol("fallback");
+function dispose(d) {
+    for(let i = 0; i < d.length; i++)d[i]();
+}
+function mapArray(list, mapFn, options = {}) {
+    let items = [], mapped = [], disposers = [], len = 0, indexes = mapFn.length > 1 ? [] : null;
+    onCleanup(()=>dispose(disposers));
+    return ()=>{
+        let newItems = list() || [], i, j;
+        newItems[$TRACK];
+        return untrack(()=>{
+            let newLen = newItems.length, newIndices, newIndicesNext, temp, tempdisposers, tempIndexes, start, end, newEnd, item;
+            if (newLen === 0) {
+                if (len !== 0) {
+                    dispose(disposers);
+                    disposers = [];
+                    items = [];
+                    mapped = [];
+                    len = 0;
+                    indexes && (indexes = []);
+                }
+                if (options.fallback) {
+                    items = [
+                        FALLBACK
+                    ];
+                    mapped[0] = createRoot((disposer)=>{
+                        disposers[0] = disposer;
+                        return options.fallback();
+                    });
+                    len = 1;
+                }
+            } else if (len === 0) {
+                mapped = new Array(newLen);
+                for(j = 0; j < newLen; j++){
+                    items[j] = newItems[j];
+                    mapped[j] = createRoot(mapper);
+                }
+                len = newLen;
+            } else {
+                temp = new Array(newLen);
+                tempdisposers = new Array(newLen);
+                indexes && (tempIndexes = new Array(newLen));
+                for(start = 0, end = Math.min(len, newLen); start < end && items[start] === newItems[start]; start++);
+                for(end = len - 1, newEnd = newLen - 1; end >= start && newEnd >= start && items[end] === newItems[newEnd]; end--, newEnd--){
+                    temp[newEnd] = mapped[end];
+                    tempdisposers[newEnd] = disposers[end];
+                    indexes && (tempIndexes[newEnd] = indexes[end]);
+                }
+                newIndices = new Map();
+                newIndicesNext = new Array(newEnd + 1);
+                for(j = newEnd; j >= start; j--){
+                    item = newItems[j];
+                    i = newIndices.get(item);
+                    newIndicesNext[j] = i === undefined ? -1 : i;
+                    newIndices.set(item, j);
+                }
+                for(i = start; i <= end; i++){
+                    item = items[i];
+                    j = newIndices.get(item);
+                    if (j !== undefined && j !== -1) {
+                        temp[j] = mapped[i];
+                        tempdisposers[j] = disposers[i];
+                        indexes && (tempIndexes[j] = indexes[i]);
+                        j = newIndicesNext[j];
+                        newIndices.set(item, j);
+                    } else disposers[i]();
+                }
+                for(j = start; j < newLen; j++)if (j in temp) {
+                    mapped[j] = temp[j];
+                    disposers[j] = tempdisposers[j];
+                    if (indexes) {
+                        indexes[j] = tempIndexes[j];
+                        indexes[j](j);
+                    }
+                } else mapped[j] = createRoot(mapper);
+                mapped = mapped.slice(0, len = newLen);
+                items = newItems.slice(0);
+            }
+            return mapped;
+        });
+        function mapper(disposer) {
+            disposers[j] = disposer;
+            if (indexes) {
+                const [s, set] = createSignal(j);
+                indexes[j] = set;
+                return mapFn(newItems[j], s);
+            }
+            return mapFn(newItems[j]);
+        }
+    };
+}
+function indexArray(list, mapFn, options = {}) {
+    let items = [], mapped = [], disposers = [], signals = [], len = 0, i;
+    onCleanup(()=>dispose(disposers));
+    return ()=>{
+        const newItems = list() || [];
+        newItems[$TRACK];
+        return untrack(()=>{
+            if (newItems.length === 0) {
+                if (len !== 0) {
+                    dispose(disposers);
+                    disposers = [];
+                    items = [];
+                    mapped = [];
+                    len = 0;
+                    signals = [];
+                }
+                if (options.fallback) {
+                    items = [
+                        FALLBACK
+                    ];
+                    mapped[0] = createRoot((disposer)=>{
+                        disposers[0] = disposer;
+                        return options.fallback();
+                    });
+                    len = 1;
+                }
+                return mapped;
+            }
+            if (items[0] === FALLBACK) {
+                disposers[0]();
+                disposers = [];
+                items = [];
+                mapped = [];
+                len = 0;
+            }
+            for(i = 0; i < newItems.length; i++){
+                if (i < items.length && items[i] !== newItems[i]) signals[i](()=>newItems[i]);
+                else if (i >= items.length) mapped[i] = createRoot(mapper);
+            }
+            for(; i < items.length; i++)disposers[i]();
+            len = signals.length = disposers.length = newItems.length;
+            items = newItems.slice(0);
+            return mapped = mapped.slice(0, len);
+        });
+        function mapper(disposer) {
+            disposers[i] = disposer;
+            const [s, set] = createSignal(newItems[i]);
+            signals[i] = set;
+            return mapFn(s, i);
+        }
+    };
+}
+let hydrationEnabled = false;
+function enableHydration() {
+    hydrationEnabled = true;
+}
+function createComponent(Comp, props) {
+    if (hydrationEnabled) {
+        if (sharedConfig.context) {
+            const c = sharedConfig.context;
+            setHydrateContext(nextHydrateContext());
+            const r = untrack(()=>Comp(props || {}));
+            setHydrateContext(c);
+            return r;
+        }
+    }
+    return untrack(()=>Comp(props || {}));
+}
+function trueFn() {
+    return true;
+}
+const propTraps = {
+    get (_, property, receiver) {
+        if (property === $PROXY) return receiver;
+        return _.get(property);
+    },
+    has (_, property) {
+        if (property === $PROXY) return true;
+        return _.has(property);
+    },
+    set: trueFn,
+    deleteProperty: trueFn,
+    getOwnPropertyDescriptor (_, property) {
+        return {
+            configurable: true,
+            enumerable: true,
+            get () {
+                return _.get(property);
+            },
+            set: trueFn,
+            deleteProperty: trueFn
+        };
+    },
+    ownKeys (_) {
+        return _.keys();
+    }
+};
+function resolveSource(s) {
+    return !(s = typeof s === "function" ? s() : s) ? {} : s;
+}
+function mergeProps(...sources) {
+    let proxy = false;
+    for(let i = 0; i < sources.length; i++){
+        const s = sources[i];
+        proxy = proxy || !!s && $PROXY in s;
+        sources[i] = typeof s === "function" ? (proxy = true, createMemo(s)) : s;
+    }
+    if (proxy) return new Proxy({
+        get (property) {
+            for(let i = sources.length - 1; i >= 0; i--){
+                const v = resolveSource(sources[i])[property];
+                if (v !== undefined) return v;
+            }
+        },
+        has (property) {
+            for(let i = sources.length - 1; i >= 0; i--){
+                if (property in resolveSource(sources[i])) return true;
+            }
+            return false;
+        },
+        keys () {
+            const keys = [];
+            for(let i = 0; i < sources.length; i++)keys.push(...Object.keys(resolveSource(sources[i])));
+            return [
+                ...new Set(keys)
+            ];
+        }
+    }, propTraps);
+    const target = {};
+    for(let i = sources.length - 1; i >= 0; i--)if (sources[i]) {
+        const descriptors = Object.getOwnPropertyDescriptors(sources[i]);
+        for(const key in descriptors){
+            if (key in target) continue;
+            Object.defineProperty(target, key, {
+                enumerable: true,
+                get () {
+                    for(let i = sources.length - 1; i >= 0; i--){
+                        const v = (sources[i] || {})[key];
+                        if (v !== undefined) return v;
+                    }
+                }
+            });
+        }
+    }
+    return target;
+}
+function splitProps(props, ...keys) {
+    const blocked = new Set(keys.flat());
+    if ($PROXY in props) {
+        const res = keys.map((k)=>{
+            return new Proxy({
+                get (property) {
+                    return k.includes(property) ? props[property] : undefined;
+                },
+                has (property) {
+                    return k.includes(property) && property in props;
+                },
+                keys () {
+                    return k.filter((property)=>property in props);
+                }
+            }, propTraps);
+        });
+        res.push(new Proxy({
+            get (property) {
+                return blocked.has(property) ? undefined : props[property];
+            },
+            has (property) {
+                return blocked.has(property) ? false : property in props;
+            },
+            keys () {
+                return Object.keys(props).filter((k)=>!blocked.has(k));
+            }
+        }, propTraps));
+        return res;
+    }
+    const descriptors = Object.getOwnPropertyDescriptors(props);
+    keys.push(Object.keys(descriptors).filter((k)=>!blocked.has(k)));
+    return keys.map((k)=>{
+        const clone = {};
+        for(let i = 0; i < k.length; i++){
+            const key = k[i];
+            if (!(key in props)) continue;
+            Object.defineProperty(clone, key, descriptors[key] ? descriptors[key] : {
+                get () {
+                    return props[key];
+                },
+                set () {
+                    return true;
+                },
+                enumerable: true
+            });
+        }
+        return clone;
+    });
+}
+function lazy(fn) {
+    let comp;
+    let p;
+    const wrap = (props)=>{
+        const ctx = sharedConfig.context;
+        if (ctx) {
+            const [s, set] = createSignal();
+            (p || (p = fn())).then((mod)=>{
+                setHydrateContext(ctx);
+                set(()=>mod.default);
+                setHydrateContext();
+            });
+            comp = s;
+        } else if (!comp) {
+            const [s] = createResource(()=>(p || (p = fn())).then((mod)=>mod.default));
+            comp = s;
+        }
+        let Comp;
+        return createMemo(()=>(Comp = comp()) && untrack(()=>{
+                if (!ctx) return Comp(props);
+                const c = sharedConfig.context;
+                setHydrateContext(ctx);
+                const r = Comp(props);
+                setHydrateContext(c);
+                return r;
+            }));
+    };
+    wrap.preload = ()=>p || ((p = fn()).then((mod)=>comp = ()=>mod.default), p);
+    return wrap;
+}
+let counter = 0;
+function createUniqueId() {
+    const ctx = sharedConfig.context;
+    return ctx ? `${ctx.id}${ctx.count++}` : `cl-${counter++}`;
+}
+const narrowedError = (name)=>`Stale read from <${name}>.`;
+function For(props) {
+    const fallback = "fallback" in props && {
+        fallback: ()=>props.fallback
+    };
+    return createMemo(mapArray(()=>props.each, props.children, fallback || undefined));
+}
+function Index(props) {
+    const fallback = "fallback" in props && {
+        fallback: ()=>props.fallback
+    };
+    return createMemo(indexArray(()=>props.each, props.children, fallback || undefined));
+}
+function Show(props) {
+    const keyed = props.keyed;
+    const condition = createMemo(()=>props.when, undefined, {
+        equals: (a, b)=>keyed ? a === b : !a === !b
+    });
+    return createMemo(()=>{
+        const c = condition();
+        if (c) {
+            const child = props.children;
+            const fn = typeof child === "function" && child.length > 0;
+            return fn ? untrack(()=>child(keyed ? c : ()=>{
+                    if (!untrack(condition)) throw narrowedError("Show");
+                    return props.when;
+                })) : child;
+        }
+        return props.fallback;
+    }, undefined, undefined);
+}
+function Switch(props) {
+    let keyed = false;
+    const equals = (a, b)=>a[0] === b[0] && (keyed ? a[1] === b[1] : !a[1] === !b[1]) && a[2] === b[2];
+    const conditions = children(()=>props.children), evalConditions = createMemo(()=>{
+        let conds = conditions();
+        if (!Array.isArray(conds)) conds = [
+            conds
+        ];
+        for(let i = 0; i < conds.length; i++){
+            const c = conds[i].when;
+            if (c) {
+                keyed = !!conds[i].keyed;
+                return [
+                    i,
+                    c,
+                    conds[i]
+                ];
+            }
+        }
+        return [
+            -1
+        ];
+    }, undefined, {
+        equals
+    });
+    return createMemo(()=>{
+        const [index, when, cond] = evalConditions();
+        if (index < 0) return props.fallback;
+        const c = cond.children;
+        const fn = typeof c === "function" && c.length > 0;
+        return fn ? untrack(()=>c(keyed ? when : ()=>{
+                if (untrack(evalConditions)[0] !== index) throw narrowedError("Match");
+                return cond.when;
+            })) : c;
+    }, undefined, undefined);
+}
+function Match(props) {
+    return props;
+}
+let Errors;
+function resetErrorBoundaries() {
+    Errors && [
+        ...Errors
+    ].forEach((fn)=>fn());
+}
+function ErrorBoundary(props) {
+    let err;
+    let v;
+    if (sharedConfig.context && sharedConfig.load && (v = sharedConfig.load(sharedConfig.context.id + sharedConfig.context.count))) err = v[0];
+    const [errored, setErrored] = createSignal(err, undefined);
+    Errors || (Errors = new Set());
+    Errors.add(setErrored);
+    onCleanup(()=>Errors.delete(setErrored));
+    return createMemo(()=>{
+        let e;
+        if (e = errored()) {
+            const f = props.fallback;
+            return typeof f === "function" && f.length ? untrack(()=>f(e, ()=>setErrored())) : f;
+        }
+        return catchError(()=>props.children, setErrored);
+    }, undefined, undefined);
+}
+const suspenseListEquals = (a, b)=>a.showContent === b.showContent && a.showFallback === b.showFallback;
+const SuspenseListContext = createContext();
+function SuspenseList(props) {
+    let [wrapper, setWrapper] = createSignal(()=>({
+            inFallback: false
+        })), show;
+    const listContext = useContext(SuspenseListContext);
+    const [registry, setRegistry] = createSignal([]);
+    if (listContext) show = listContext.register(createMemo(()=>wrapper()().inFallback));
+    const resolved = createMemo((prev)=>{
+        const reveal = props.revealOrder, tail = props.tail, { showContent =true , showFallback =true  } = show ? show() : {}, reg = registry(), reverse = reveal === "backwards";
+        if (reveal === "together") {
+            const all = reg.every((inFallback)=>!inFallback());
+            const res = reg.map(()=>({
+                    showContent: all && showContent,
+                    showFallback
+                }));
+            res.inFallback = !all;
+            return res;
+        }
+        let stop = false;
+        let inFallback = prev.inFallback;
+        const res = [];
+        for(let i = 0, len = reg.length; i < len; i++){
+            const n = reverse ? len - i - 1 : i, s = reg[n]();
+            if (!stop && !s) res[n] = {
+                showContent,
+                showFallback
+            };
+            else {
+                const next = !stop;
+                if (next) inFallback = true;
+                res[n] = {
+                    showContent: next,
+                    showFallback: !tail || next && tail === "collapsed" ? showFallback : false
+                };
+                stop = true;
+            }
+        }
+        if (!stop) inFallback = false;
+        res.inFallback = inFallback;
+        return res;
+    }, {
+        inFallback: false
+    });
+    setWrapper(()=>resolved);
+    return createComponent(SuspenseListContext.Provider, {
+        value: {
+            register: (inFallback)=>{
+                let index;
+                setRegistry((registry)=>{
+                    index = registry.length;
+                    return [
+                        ...registry,
+                        inFallback
+                    ];
+                });
+                return createMemo(()=>resolved()[index], undefined, {
+                    equals: suspenseListEquals
+                });
+            }
+        },
+        get children () {
+            return props.children;
+        }
+    });
+}
+function Suspense(props) {
+    let counter = 0, show, ctx, p, flicker, error;
+    const [inFallback, setFallback] = createSignal(false), SuspenseContext = getSuspenseContext(), store = {
+        increment: ()=>{
+            if (++counter === 1) setFallback(true);
+        },
+        decrement: ()=>{
+            if (--counter === 0) setFallback(false);
+        },
+        inFallback,
+        effects: [],
+        resolved: false
+    }, owner = getOwner();
+    if (sharedConfig.context && sharedConfig.load) {
+        const key = sharedConfig.context.id + sharedConfig.context.count;
+        let ref = sharedConfig.load(key);
+        if (ref && (p = ref[0]) && p !== "$$f") {
+            if (typeof p !== "object" || !("then" in p)) p = Promise.resolve(p);
+            const [s, set] = createSignal(undefined, {
+                equals: false
+            });
+            flicker = s;
+            p.then((err)=>{
+                if (err || sharedConfig.done) {
+                    err && (error = err);
+                    return set();
+                }
+                sharedConfig.gather(key);
+                setHydrateContext(ctx);
+                set();
+                setHydrateContext();
+            });
+        }
+    }
+    const listContext = useContext(SuspenseListContext);
+    if (listContext) show = listContext.register(store.inFallback);
+    let dispose;
+    onCleanup(()=>dispose && dispose());
+    return createComponent(SuspenseContext.Provider, {
+        value: store,
+        get children () {
+            return createMemo(()=>{
+                if (error) throw error;
+                ctx = sharedConfig.context;
+                if (flicker) {
+                    flicker();
+                    return flicker = undefined;
+                }
+                if (ctx && p === "$$f") setHydrateContext();
+                const rendered = createMemo(()=>props.children);
+                return createMemo((prev)=>{
+                    const inFallback = store.inFallback(), { showContent =true , showFallback =true  } = show ? show() : {};
+                    if ((!inFallback || p && p !== "$$f") && showContent) {
+                        store.resolved = true;
+                        dispose && dispose();
+                        dispose = ctx = p = undefined;
+                        resumeEffects(store.effects);
+                        return rendered();
+                    }
+                    if (!showFallback) return;
+                    if (dispose) return prev;
+                    return createRoot((disposer)=>{
+                        dispose = disposer;
+                        if (ctx) {
+                            setHydrateContext({
+                                id: ctx.id + "f",
+                                count: 0
+                            });
+                            ctx = undefined;
+                        }
+                        return props.fallback;
+                    }, owner);
+                });
+            });
+        }
+    });
+}
+const DEV = undefined;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"hYM5F":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Component", ()=>(0, _createCustomComponentDefault.default));
@@ -581,34 +3302,23 @@ var _index = require("./element/index");
 var _indexDefault = parcelHelpers.interopDefault(_index);
 var _types = require("./types");
 
-},{"./createCustomComponent":"dqWoa","./element/index":"1owbD","./types":"hlMY6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dqWoa":[function(require,module,exports) {
+},{"./createCustomComponent":"1uqiS","./element/index":"HRHZo","./types":"gxMhi","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1uqiS":[function(require,module,exports) {
 /*
  
     Core Framework realted code
 
 */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _snabbdom = require("snabbdom");
-var _lodash = require("lodash");
-var _lodashDefault = parcelHelpers.interopDefault(_lodash);
 var _actions = require("./actions");
+var _solidJs = require("solid-js");
 var _window = require("./window");
 var _windowDefault = parcelHelpers.interopDefault(_window);
 var _addStyles = require("./addStyles");
 var _addStylesDefault = parcelHelpers.interopDefault(_addStyles);
+var _lodash = require("lodash");
+var _lodashDefault = parcelHelpers.interopDefault(_lodash);
 var _constants = require("./constants");
 var _utils = require("./utils");
-const patch = (0, _snabbdom.init)([
-    // Init patch function with chosen modules
-    (0, _snabbdom.classModule),
-    // makes it easy to toggle classes
-    (0, _snabbdom.propsModule),
-    // for setting properties on DOM elements
-    (0, _snabbdom.styleModule),
-    // handles styling on elements with support for animations
-    (0, _snabbdom.eventListenersModule // attaches event listeners
-    )
-]);
 const createCustomComponent = (name, config)=>{
     let useShadow = true;
     let shadowMode = "open";
@@ -622,18 +3332,25 @@ const createCustomComponent = (name, config)=>{
         shadowMode
     };
     class CustomComponent extends HTMLElement {
-        _initialized = false;
-        _isInitializing = false;
-        meta = {};
         constructor(){
             super();
+            this._initialized = false;
+            this._isInitializing = false;
+            this.meta = {};
             this._config = Object.assign({}, config);
             if (this.getConfig("shadow") && this.getConfig("shadow").useShadow) this.el = this.attachShadow({
                 mode: this.getConfig("shadow").shadowMode
             });
             else this.el = this;
             this._host = this;
-            this[0, _constants.STATE] = this._config.state;
+            this.uxr_props = {};
+            this[0, _constants.STATE] = {};
+            this._signals = {};
+            for(const key in this._config.state){
+                if ((0, _lodashDefault.default).isArray(this._config.state[key])) this._signals[key] = this._config.state[key];
+                else this._signals[key] = (0, _solidJs.createSignal)(this._config.state[key]);
+                this[0, _constants.STATE][key] = this._signals[key][0];
+            }
             this._vNode = this.el;
             this._initialized = false;
             this._isInitializing = false;
@@ -642,26 +3359,22 @@ const createCustomComponent = (name, config)=>{
         getConfig(key) {
             return this._config[key];
         }
-        async updateState(newState = {}) {
-            if ((0, _lodashDefault.default).isEqual(newState, this[0, _constants.STATE])) //State is same not rendering
-            return;
-            this[0, _constants.STATE] = {
+        updateState(newState = {}) {
+            /*if (_.isEqual(newState, this[STATE])) {
+          //State is same not rendering
+          return;
+      }*/ for(const key in {
                 ...newState
-            };
-            // RequestIdleCallback SHould not be used a scheduler needs to be implemented
-            if ((0, _windowDefault.default).scheduler) (0, _windowDefault.default).scheduler.postTask(()=>{
-                this._render();
-            }, {
-                priority: "user-visible"
-            });
-            else this._render();
+            })if (this[0, _constants.STATE][key]) this._signals[key][1](newState[key]);
         }
         /*
      *  dispatchDomEvent(name: stirng, paylod: object, META:{stopPropagation})
      */ dispatchInternalEvent(name, payload = null, meta = null) {
             //If meta.stopPropagation is true then do not bubble the event
-            let host_meta = {};
-            if (this.meta) host_meta = this.meta;
+            const host_meta = {};
+            //if (this.meta) host_meta = this.meta;
+            const attrKeys = this.getAttributeNames();
+            for(const key in attrKeys)if (attrKeys[key].includes("meta")) host_meta[attrKeys[key].slice(5)] = this.getAttribute(attrKeys[key]);
             const bubbles = meta && meta.stopPropagation ? false : true;
             this.dispatchEvent(new CustomEvent(name, {
                 bubbles: bubbles,
@@ -680,7 +3393,7 @@ const createCustomComponent = (name, config)=>{
      * dispatch(name: string, payload: object, e: Event)
      * event is requried as we take target from it
      */ async dispatchEventBusEvent(name, payload = {}, e) {
-            let eventBusEvent = (0, _windowDefault.default).eventBus[name];
+            const eventBusEvent = (0, _windowDefault.default).eventBus[name];
             let isInternalAction = false;
             let internalAction;
             if ((0, _actions.actionUtils).checkIfActionIsInternal(name)) {
@@ -740,7 +3453,17 @@ const createCustomComponent = (name, config)=>{
      * InitialzeProps
      */ _initializeProps(config) {
             const props = {};
-            for(const key in config.props)props[key] = config.props[key];
+            for(const key in config.props){
+                const [get, set] = (0, _solidJs.createSignal)(config.props[key]);
+                Object.defineProperty(props, key, {
+                    get,
+                    set (v) {
+                        set(()=>v);
+                    },
+                    enumerable: true
+                });
+            //props[key] = config.props[key];
+            }
             return props;
         }
         _reconcileProps() {
@@ -763,9 +3486,17 @@ const createCustomComponent = (name, config)=>{
         Called when component is connected to DOM
     */ connectedCallback() {
             this._isInitializing = true;
-            this._reconcileProps();
+            //this._reconcileProps();
             //Reconcile attributes from props
-            for(const key in this[0, _constants.PROPS])this.setAttribute(key, this[0, _constants.PROPS][key]);
+            for(const key in this[0, _constants.PROPS])if (key in this) {
+                /* @ts-ignore */ const value = this[key];
+                this.setAttribute(key, value);
+            } else this.setAttribute(key, this[0, _constants.PROPS][key]);
+            for(const key in this.uxr_props)if ((0, _lodashDefault.default).isArray(this.uxr_props[key])) (0, _solidJs.createEffect)(()=>{
+                const value = this.uxr_props[key][0]();
+                this.setAttribute(key, value);
+            });
+            else this.setAttribute(key, this.uxr_props[key]);
             const actionHandlers = this.getConfig("handlers");
             for(const key in actionHandlers){
                 this.addEventListener(actionHandlers[key].name, (0, _actions.actionHandlerFactory)({
@@ -774,8 +3505,8 @@ const createCustomComponent = (name, config)=>{
                 }, actionHandlers[key].handler, this[0, _constants.PROPS]));
                 //Adding eventBus handlers
                 if (!(0, _windowDefault.default).eventBus[actionHandlers[key].name]) (0, _windowDefault.default).eventBus[actionHandlers[key].name] = [];
-                let isInternalAction = (0, _actions.actionUtils).checkIfActionIsInternal(actionHandlers[key].name);
-                let internalAction = (0, _actions.actionUtils).getInternalAction(name);
+                const isInternalAction = (0, _actions.actionUtils).checkIfActionIsInternal(actionHandlers[key].name);
+                const internalAction = (0, _actions.actionUtils).getInternalAction(name);
                 let stopPropagation = false;
                 if (!isInternalAction) stopPropagation = actionHandlers[key].stopPropagation;
                 else if (internalAction) stopPropagation = internalAction.stopPropagation;
@@ -791,27 +3522,12 @@ const createCustomComponent = (name, config)=>{
             // Call when browser is idle
             // https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
             // RequestIdleCallback SHould not be used a scheduler needs to be implemented
-            if ((0, _windowDefault.default).scheduler) {
-                (0, _windowDefault.default).scheduler.postTask(()=>{
-                    this._render();
-                    if (this.getConfig("shadow") && this.getConfig("shadow").useShadow) {
-                        const vNode = this._vNode;
-                        this.el.appendChild(vNode.elm);
-                    }
-                }, {
-                    priority: "user-blocking"
-                });
-                (0, _windowDefault.default).scheduler.postTask(()=>{
-                    (0, _addStylesDefault.default)(this.el, this._config.styles);
-                });
-            } else {
-                this._render();
-                if (this.getConfig("shadow").useShadow) {
-                    const vNode = this._vNode;
-                    this.el.appendChild(vNode.elm);
-                }
-                (0, _addStylesDefault.default)(this.el, this._config.styles);
+            this._render();
+            if (this.getConfig("shadow").useShadow) {
+                const vNode = this._vNode;
+                this.el.appendChild(vNode);
             }
+            (0, _addStylesDefault.default)(this.el, this._config.styles);
             //Dispath lifecycle action
             this.dispatchEventBusEvent((0, _actions.internalActions).CEL_COMPONENT_CONNECTED, {}, {
                 target: this
@@ -824,12 +3540,17 @@ const createCustomComponent = (name, config)=>{
             });
         }
         static get observedAttributes() {
-            return [
-                ""
-            ];
+            const props = [];
+            for(const key in config.props)props.push(key);
+            return props;
         }
         attributeChangedCallback(name, oldValue, newValue) {
-            console.log("Custom element attributes changed.", name, oldValue, newValue);
+            /*console.log(
+          "Custom element attributes changed.",
+          name,
+          oldValue,
+          newValue
+      );*/ this[0, _constants.PROPS][name] = newValue;
         }
         _render() {
             //reconcile props from the props attribute to props to pass into view
@@ -845,7 +3566,9 @@ const createCustomComponent = (name, config)=>{
             };
             let view;
             if (this._config.template instanceof Function) view = this._config.template(data);
-            this._vNode = patch(this._vNode, view);
+            else // Case for uxr where template is hyperscript generated
+            view = this._config.template;
+            this._vNode = view;
             const children = this._vNode.children;
             (0, _utils.addCelHostToChildren)(this, children);
             this._initialized = true;
@@ -859,769 +3582,395 @@ const createComponent = (name, config)=>{
 };
 exports.default = createComponent;
 
-},{"snabbdom":"Rkydo","lodash":"3qBDj","./actions":"15xyW","./window":"bmjJS","./addStyles":"5bhdu","./constants":"6s0fl","./utils":"9VcNe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Rkydo":[function(require,module,exports) {
-// core
+},{"./actions":"4oso5","solid-js":"5aELA","./window":"dJiXz","./addStyles":"88gs8","lodash":"3qBDj","./constants":"7ysb8","./utils":"kGWtf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4oso5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "htmlDomApi", ()=>(0, _htmldomapi.htmlDomApi));
-parcelHelpers.export(exports, "init", ()=>(0, _init.init));
-parcelHelpers.export(exports, "thunk", ()=>(0, _thunk.thunk));
-parcelHelpers.export(exports, "vnode", ()=>(0, _vnode.vnode));
-// helpers
-parcelHelpers.export(exports, "attachTo", ()=>(0, _attachto.attachTo));
-parcelHelpers.export(exports, "array", ()=>(0, _is.array));
-parcelHelpers.export(exports, "primitive", ()=>(0, _is.primitive));
-parcelHelpers.export(exports, "toVNode", ()=>(0, _tovnode.toVNode));
-parcelHelpers.export(exports, "h", ()=>(0, _h.h));
-parcelHelpers.export(exports, "fragment", ()=>(0, _h.fragment));
-// modules
-parcelHelpers.export(exports, "attributesModule", ()=>(0, _attributes.attributesModule));
-parcelHelpers.export(exports, "classModule", ()=>(0, _class.classModule));
-parcelHelpers.export(exports, "datasetModule", ()=>(0, _dataset.datasetModule));
-parcelHelpers.export(exports, "eventListenersModule", ()=>(0, _eventlisteners.eventListenersModule));
-parcelHelpers.export(exports, "propsModule", ()=>(0, _props.propsModule));
-parcelHelpers.export(exports, "styleModule", ()=>(0, _style.styleModule));
-// JSX
-parcelHelpers.export(exports, "jsx", ()=>(0, _jsx.jsx));
-parcelHelpers.export(exports, "Fragment", ()=>(0, _jsx.Fragment));
-var _htmldomapi = require("./htmldomapi");
-var _init = require("./init");
-var _thunk = require("./thunk");
-var _vnode = require("./vnode");
-var _attachto = require("./helpers/attachto");
-var _is = require("./is");
-var _tovnode = require("./tovnode");
-var _h = require("./h");
-// types
-var _hooks = require("./hooks");
-parcelHelpers.exportAll(_hooks, exports);
-var _attributes = require("./modules/attributes");
-var _class = require("./modules/class");
-var _dataset = require("./modules/dataset");
-var _eventlisteners = require("./modules/eventlisteners");
-var _props = require("./modules/props");
-var _style = require("./modules/style");
-var _jsx = require("./jsx");
+parcelHelpers.export(exports, "actionHandlerFactory", ()=>(0, _actionHandlerFactory.actionHandlerFactory));
+parcelHelpers.export(exports, "eventBusHandlerFactory", ()=>(0, _actionHandlerFactory.eventBusHandlerFactory));
+parcelHelpers.export(exports, "internalActions", ()=>internalActions);
+parcelHelpers.export(exports, "actionUtils", ()=>_utils);
+parcelHelpers.export(exports, "Types", ()=>_types);
+var _actionHandlerFactory = require("./actionHandlerFactory");
+var _constants = require("./constants");
+var _types = require("./types");
+var _utils = require("./utils");
+const internalActions = {
+    CEL_COMPONENT_CONNECTED: (0, _constants.CEL_COMPONENT_CONNECTED),
+    CEL_COMPONENT_UPDATED: (0, _constants.CEL_COMPONENT_UPDATED),
+    CEL_COMPONENET_DISCONNECTED: (0, _constants.CEL_COMPONENET_DISCONNECTED)
+};
 
-},{"./htmldomapi":"ec4Mk","./init":"d6X9p","./thunk":false,"./vnode":"fNqAR","./helpers/attachto":false,"./is":"kHAzx","./tovnode":false,"./h":"bCpOB","./hooks":"4VlVB","./modules/attributes":false,"./modules/class":"1UVqj","./modules/dataset":false,"./modules/eventlisteners":"hZwdS","./modules/props":"lumw8","./modules/style":"6POOZ","./jsx":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ec4Mk":[function(require,module,exports) {
+},{"./actionHandlerFactory":"4712Z","./constants":"5qBQX","./types":"gjKcs","./utils":"gYTAE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4712Z":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "htmlDomApi", ()=>htmlDomApi);
-function createElement(tagName, options) {
-    return document.createElement(tagName, options);
-}
-function createElementNS(namespaceURI, qualifiedName, options) {
-    return document.createElementNS(namespaceURI, qualifiedName, options);
-}
-function createDocumentFragment() {
-    return parseFragment(document.createDocumentFragment());
-}
-function createTextNode(text) {
-    return document.createTextNode(text);
-}
-function createComment(text) {
-    return document.createComment(text);
-}
-function insertBefore(parentNode, newNode, referenceNode) {
-    if (isDocumentFragment(parentNode)) {
-        let node = parentNode;
-        while(node && isDocumentFragment(node)){
-            const fragment = parseFragment(node);
-            node = fragment.parent;
-        }
-        parentNode = node !== null && node !== void 0 ? node : parentNode;
-    }
-    if (isDocumentFragment(newNode)) newNode = parseFragment(newNode, parentNode);
-    if (referenceNode && isDocumentFragment(referenceNode)) referenceNode = parseFragment(referenceNode).firstChildNode;
-    parentNode.insertBefore(newNode, referenceNode);
-}
-function removeChild(node, child) {
-    node.removeChild(child);
-}
-function appendChild(node, child) {
-    if (isDocumentFragment(child)) child = parseFragment(child, node);
-    node.appendChild(child);
-}
-function parentNode(node) {
-    if (isDocumentFragment(node)) {
-        while(node && isDocumentFragment(node)){
-            const fragment = parseFragment(node);
-            node = fragment.parent;
-        }
-        return node !== null && node !== void 0 ? node : null;
-    }
-    return node.parentNode;
-}
-function nextSibling(node) {
-    var _a;
-    if (isDocumentFragment(node)) {
-        const fragment = parseFragment(node);
-        const parent = parentNode(fragment);
-        if (parent && fragment.lastChildNode) {
-            const children = Array.from(parent.childNodes);
-            const index = children.indexOf(fragment.lastChildNode);
-            return (_a = children[index + 1]) !== null && _a !== void 0 ? _a : null;
-        }
-        return null;
-    }
-    return node.nextSibling;
-}
-function tagName(elm) {
-    return elm.tagName;
-}
-function setTextContent(node, text) {
-    node.textContent = text;
-}
-function getTextContent(node) {
-    return node.textContent;
-}
-function isElement(node) {
-    return node.nodeType === 1;
-}
-function isText(node) {
-    return node.nodeType === 3;
-}
-function isComment(node) {
-    return node.nodeType === 8;
-}
-function isDocumentFragment(node) {
-    return node.nodeType === 11;
-}
-function parseFragment(fragmentNode, parentNode) {
-    var _a, _b, _c;
-    const fragment = fragmentNode;
-    (_a = fragment.parent) !== null && _a !== void 0 ? _a : fragment.parent = parentNode !== null && parentNode !== void 0 ? parentNode : null;
-    (_b = fragment.firstChildNode) !== null && _b !== void 0 ? _b : fragment.firstChildNode = fragmentNode.firstChild;
-    (_c = fragment.lastChildNode) !== null && _c !== void 0 ? _c : fragment.lastChildNode = fragmentNode.lastChild;
-    return fragment;
-}
-const htmlDomApi = {
-    createElement,
-    createElementNS,
-    createTextNode,
-    createDocumentFragment,
-    createComment,
-    insertBefore,
-    removeChild,
-    appendChild,
-    parentNode,
-    nextSibling,
-    tagName,
-    setTextContent,
-    getTextContent,
-    isElement,
-    isText,
-    isComment,
-    isDocumentFragment
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"d6X9p":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "init", ()=>init);
-var _vnode = require("./vnode");
-var _is = require("./is");
-var _htmldomapi = require("./htmldomapi");
-function isUndef(s) {
-    return s === undefined;
-}
-function isDef(s) {
-    return s !== undefined;
-}
-const emptyNode = (0, _vnode.vnode)("", {}, [], undefined, undefined);
-function sameVnode(vnode1, vnode2) {
-    var _a, _b;
-    const isSameKey = vnode1.key === vnode2.key;
-    const isSameIs = ((_a = vnode1.data) === null || _a === void 0 ? void 0 : _a.is) === ((_b = vnode2.data) === null || _b === void 0 ? void 0 : _b.is);
-    const isSameSel = vnode1.sel === vnode2.sel;
-    const isSameTextOrFragment = !vnode1.sel && vnode1.sel === vnode2.sel ? typeof vnode1.text === typeof vnode2.text : true;
-    return isSameSel && isSameKey && isSameIs && isSameTextOrFragment;
-}
-/**
- * @todo Remove this function when the document fragment is considered stable.
- */ function documentFragmentIsNotSupported() {
-    throw new Error("The document fragment is not supported on this platform.");
-}
-function isElement(api, vnode) {
-    return api.isElement(vnode);
-}
-function isDocumentFragment(api, vnode) {
-    return api.isDocumentFragment(vnode);
-}
-function createKeyToOldIdx(children, beginIdx, endIdx) {
-    var _a;
-    const map = {};
-    for(let i = beginIdx; i <= endIdx; ++i){
-        const key = (_a = children[i]) === null || _a === void 0 ? void 0 : _a.key;
-        if (key !== undefined) map[key] = i;
-    }
-    return map;
-}
-const hooks = [
-    "create",
-    "update",
-    "remove",
-    "destroy",
-    "pre",
-    "post"
-];
-function init(modules, domApi, options) {
-    const cbs = {
-        create: [],
-        update: [],
-        remove: [],
-        destroy: [],
-        pre: [],
-        post: []
-    };
-    const api = domApi !== undefined ? domApi : (0, _htmldomapi.htmlDomApi);
-    for (const hook of hooks)for (const module of modules){
-        const currentHook = module[hook];
-        if (currentHook !== undefined) cbs[hook].push(currentHook);
-    }
-    function emptyNodeAt(elm) {
-        const id = elm.id ? "#" + elm.id : "";
-        // elm.className doesn't return a string when elm is an SVG element inside a shadowRoot.
-        // https://stackoverflow.com/questions/29454340/detecting-classname-of-svganimatedstring
-        const classes = elm.getAttribute("class");
-        const c = classes ? "." + classes.split(" ").join(".") : "";
-        return (0, _vnode.vnode)(api.tagName(elm).toLowerCase() + id + c, {}, [], undefined, elm);
-    }
-    function emptyDocumentFragmentAt(frag) {
-        return (0, _vnode.vnode)(undefined, {}, [], undefined, frag);
-    }
-    function createRmCb(childElm, listeners) {
-        return function rmCb() {
-            if (--listeners === 0) {
-                const parent = api.parentNode(childElm);
-                api.removeChild(parent, childElm);
-            }
+parcelHelpers.export(exports, "actionHandlerFactory", ()=>actionHandlerFactory);
+parcelHelpers.export(exports, "eventBusHandlerFactory", ()=>eventBusHandlerFactory);
+function actionHandlerFactory({ getState , updateState  }, handler, props) {
+    //Payload is added for eventBus event payload
+    return function(e) {
+        let event;
+        if (e && e.detail) event = {
+            name: e.detail.name,
+            payload: e.detail.payload,
+            meta: e.detail.meta
         };
-    }
-    function createElm(vnode, insertedVnodeQueue) {
-        var _a, _b, _c, _d;
-        let i;
-        let data = vnode.data;
-        if (data !== undefined) {
-            const init = (_a = data.hook) === null || _a === void 0 ? void 0 : _a.init;
-            if (isDef(init)) {
-                init(vnode);
-                data = vnode.data;
-            }
-        }
-        const children = vnode.children;
-        const sel = vnode.sel;
-        if (sel === "!") {
-            if (isUndef(vnode.text)) vnode.text = "";
-            vnode.elm = api.createComment(vnode.text);
-        } else if (sel !== undefined) {
-            // Parse selector
-            const hashIdx = sel.indexOf("#");
-            const dotIdx = sel.indexOf(".", hashIdx);
-            const hash = hashIdx > 0 ? hashIdx : sel.length;
-            const dot = dotIdx > 0 ? dotIdx : sel.length;
-            const tag = hashIdx !== -1 || dotIdx !== -1 ? sel.slice(0, Math.min(hash, dot)) : sel;
-            const elm = vnode.elm = isDef(data) && isDef(i = data.ns) ? api.createElementNS(i, tag, data) : api.createElement(tag, data);
-            if (hash < dot) elm.setAttribute("id", sel.slice(hash + 1, dot));
-            if (dotIdx > 0) elm.setAttribute("class", sel.slice(dot + 1).replace(/\./g, " "));
-            for(i = 0; i < cbs.create.length; ++i)cbs.create[i](emptyNode, vnode);
-            if (_is.array(children)) for(i = 0; i < children.length; ++i){
-                const ch = children[i];
-                if (ch != null) api.appendChild(elm, createElm(ch, insertedVnodeQueue));
-            }
-            else if (_is.primitive(vnode.text)) api.appendChild(elm, api.createTextNode(vnode.text));
-            const hook = vnode.data.hook;
-            if (isDef(hook)) {
-                (_b = hook.create) === null || _b === void 0 || _b.call(hook, emptyNode, vnode);
-                if (hook.insert) insertedVnodeQueue.push(vnode);
-            }
-        } else if (((_c = options === null || options === void 0 ? void 0 : options.experimental) === null || _c === void 0 ? void 0 : _c.fragments) && vnode.children) {
-            vnode.elm = ((_d = api.createDocumentFragment) !== null && _d !== void 0 ? _d : documentFragmentIsNotSupported)();
-            for(i = 0; i < cbs.create.length; ++i)cbs.create[i](emptyNode, vnode);
-            for(i = 0; i < vnode.children.length; ++i){
-                const ch = vnode.children[i];
-                if (ch != null) api.appendChild(vnode.elm, createElm(ch, insertedVnodeQueue));
-            }
-        } else vnode.elm = api.createTextNode(vnode.text);
-        return vnode.elm;
-    }
-    function addVnodes(parentElm, before, vnodes, startIdx, endIdx, insertedVnodeQueue) {
-        for(; startIdx <= endIdx; ++startIdx){
-            const ch = vnodes[startIdx];
-            if (ch != null) api.insertBefore(parentElm, createElm(ch, insertedVnodeQueue), before);
-        }
-    }
-    function invokeDestroyHook(vnode) {
-        var _a, _b;
-        const data = vnode.data;
-        if (data !== undefined) {
-            (_b = (_a = data === null || data === void 0 ? void 0 : data.hook) === null || _a === void 0 ? void 0 : _a.destroy) === null || _b === void 0 || _b.call(_a, vnode);
-            for(let i = 0; i < cbs.destroy.length; ++i)cbs.destroy[i](vnode);
-            if (vnode.children !== undefined) for(let j = 0; j < vnode.children.length; ++j){
-                const child = vnode.children[j];
-                if (child != null && typeof child !== "string") invokeDestroyHook(child);
-            }
-        }
-    }
-    function removeVnodes(parentElm, vnodes, startIdx, endIdx) {
-        var _a, _b;
-        for(; startIdx <= endIdx; ++startIdx){
-            let listeners;
-            let rm;
-            const ch = vnodes[startIdx];
-            if (ch != null) {
-                if (isDef(ch.sel)) {
-                    invokeDestroyHook(ch);
-                    listeners = cbs.remove.length + 1;
-                    rm = createRmCb(ch.elm, listeners);
-                    for(let i = 0; i < cbs.remove.length; ++i)cbs.remove[i](ch, rm);
-                    const removeHook = (_b = (_a = ch === null || ch === void 0 ? void 0 : ch.data) === null || _a === void 0 ? void 0 : _a.hook) === null || _b === void 0 ? void 0 : _b.remove;
-                    if (isDef(removeHook)) removeHook(ch, rm);
-                    else rm();
-                } else if (ch.children) {
-                    // Fragment node
-                    invokeDestroyHook(ch);
-                    removeVnodes(parentElm, ch.children, 0, ch.children.length - 1);
-                } else // Text node
-                api.removeChild(parentElm, ch.elm);
-            }
-        }
-    }
-    function updateChildren(parentElm, oldCh, newCh, insertedVnodeQueue) {
-        let oldStartIdx = 0;
-        let newStartIdx = 0;
-        let oldEndIdx = oldCh.length - 1;
-        let oldStartVnode = oldCh[0];
-        let oldEndVnode = oldCh[oldEndIdx];
-        let newEndIdx = newCh.length - 1;
-        let newStartVnode = newCh[0];
-        let newEndVnode = newCh[newEndIdx];
-        let oldKeyToIdx;
-        let idxInOld;
-        let elmToMove;
-        let before;
-        while(oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx){
-            if (oldStartVnode == null) oldStartVnode = oldCh[++oldStartIdx]; // Vnode might have been moved left
-            else if (oldEndVnode == null) oldEndVnode = oldCh[--oldEndIdx];
-            else if (newStartVnode == null) newStartVnode = newCh[++newStartIdx];
-            else if (newEndVnode == null) newEndVnode = newCh[--newEndIdx];
-            else if (sameVnode(oldStartVnode, newStartVnode)) {
-                patchVnode(oldStartVnode, newStartVnode, insertedVnodeQueue);
-                oldStartVnode = oldCh[++oldStartIdx];
-                newStartVnode = newCh[++newStartIdx];
-            } else if (sameVnode(oldEndVnode, newEndVnode)) {
-                patchVnode(oldEndVnode, newEndVnode, insertedVnodeQueue);
-                oldEndVnode = oldCh[--oldEndIdx];
-                newEndVnode = newCh[--newEndIdx];
-            } else if (sameVnode(oldStartVnode, newEndVnode)) {
-                // Vnode moved right
-                patchVnode(oldStartVnode, newEndVnode, insertedVnodeQueue);
-                api.insertBefore(parentElm, oldStartVnode.elm, api.nextSibling(oldEndVnode.elm));
-                oldStartVnode = oldCh[++oldStartIdx];
-                newEndVnode = newCh[--newEndIdx];
-            } else if (sameVnode(oldEndVnode, newStartVnode)) {
-                // Vnode moved left
-                patchVnode(oldEndVnode, newStartVnode, insertedVnodeQueue);
-                api.insertBefore(parentElm, oldEndVnode.elm, oldStartVnode.elm);
-                oldEndVnode = oldCh[--oldEndIdx];
-                newStartVnode = newCh[++newStartIdx];
-            } else {
-                if (oldKeyToIdx === undefined) oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx);
-                idxInOld = oldKeyToIdx[newStartVnode.key];
-                if (isUndef(idxInOld)) // New element
-                api.insertBefore(parentElm, createElm(newStartVnode, insertedVnodeQueue), oldStartVnode.elm);
-                else {
-                    elmToMove = oldCh[idxInOld];
-                    if (elmToMove.sel !== newStartVnode.sel) api.insertBefore(parentElm, createElm(newStartVnode, insertedVnodeQueue), oldStartVnode.elm);
-                    else {
-                        patchVnode(elmToMove, newStartVnode, insertedVnodeQueue);
-                        oldCh[idxInOld] = undefined;
-                        api.insertBefore(parentElm, elmToMove.elm, oldStartVnode.elm);
-                    }
-                }
-                newStartVnode = newCh[++newStartIdx];
-            }
-        }
-        if (newStartIdx <= newEndIdx) {
-            before = newCh[newEndIdx + 1] == null ? null : newCh[newEndIdx + 1].elm;
-            addVnodes(parentElm, before, newCh, newStartIdx, newEndIdx, insertedVnodeQueue);
-        }
-        if (oldStartIdx <= oldEndIdx) removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
-    }
-    function patchVnode(oldVnode, vnode, insertedVnodeQueue) {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
-        const hook = (_a = vnode.data) === null || _a === void 0 ? void 0 : _a.hook;
-        (_b = hook === null || hook === void 0 ? void 0 : hook.prepatch) === null || _b === void 0 || _b.call(hook, oldVnode, vnode);
-        const elm = vnode.elm = oldVnode.elm;
-        if (oldVnode === vnode) return;
-        if (vnode.data !== undefined || isDef(vnode.text) && vnode.text !== oldVnode.text) {
-            (_c = vnode.data) !== null && _c !== void 0 ? _c : vnode.data = {};
-            (_d = oldVnode.data) !== null && _d !== void 0 ? _d : oldVnode.data = {};
-            for(let i = 0; i < cbs.update.length; ++i)cbs.update[i](oldVnode, vnode);
-            (_g = (_f = (_e = vnode.data) === null || _e === void 0 ? void 0 : _e.hook) === null || _f === void 0 ? void 0 : _f.update) === null || _g === void 0 || _g.call(_f, oldVnode, vnode);
-        }
-        const oldCh = oldVnode.children;
-        const ch = vnode.children;
-        if (isUndef(vnode.text)) {
-            if (isDef(oldCh) && isDef(ch)) {
-                if (oldCh !== ch) updateChildren(elm, oldCh, ch, insertedVnodeQueue);
-            } else if (isDef(ch)) {
-                if (isDef(oldVnode.text)) api.setTextContent(elm, "");
-                addVnodes(elm, null, ch, 0, ch.length - 1, insertedVnodeQueue);
-            } else if (isDef(oldCh)) removeVnodes(elm, oldCh, 0, oldCh.length - 1);
-            else if (isDef(oldVnode.text)) api.setTextContent(elm, "");
-        } else if (oldVnode.text !== vnode.text) {
-            if (isDef(oldCh)) removeVnodes(elm, oldCh, 0, oldCh.length - 1);
-            api.setTextContent(elm, vnode.text);
-        }
-        (_h = hook === null || hook === void 0 ? void 0 : hook.postpatch) === null || _h === void 0 || _h.call(hook, oldVnode, vnode);
-    }
-    return function patch(oldVnode, vnode) {
-        let i, elm, parent;
-        const insertedVnodeQueue = [];
-        for(i = 0; i < cbs.pre.length; ++i)cbs.pre[i]();
-        if (isElement(api, oldVnode)) oldVnode = emptyNodeAt(oldVnode);
-        else if (isDocumentFragment(api, oldVnode)) oldVnode = emptyDocumentFragmentAt(oldVnode);
-        if (sameVnode(oldVnode, vnode)) patchVnode(oldVnode, vnode, insertedVnodeQueue);
-        else {
-            elm = oldVnode.elm;
-            parent = api.parentNode(elm);
-            createElm(vnode, insertedVnodeQueue);
-            if (parent !== null) {
-                api.insertBefore(parent, vnode.elm, api.nextSibling(elm));
-                removeVnodes(parent, [
-                    oldVnode
-                ], 0, 0);
-            }
-        }
-        for(i = 0; i < insertedVnodeQueue.length; ++i)insertedVnodeQueue[i].data.hook.insert(insertedVnodeQueue[i]);
-        for(i = 0; i < cbs.post.length; ++i)cbs.post[i]();
-        return vnode;
+        else event = e;
+        handler({
+            state: getState(),
+            updateState,
+            event,
+            props
+        });
+    };
+}
+function eventBusHandlerFactory({ getState , updateState  }, handler, props, host) {
+    //Payload is added for eventBus event payload
+    return function(payload = {}) {
+        handler({
+            state: getState(),
+            updateState,
+            event: payload,
+            props,
+            host: host
+        });
     };
 }
 
-},{"./vnode":"fNqAR","./is":"kHAzx","./htmldomapi":"ec4Mk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fNqAR":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5qBQX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "vnode", ()=>vnode);
-function vnode(sel, data, children, text, elm) {
-    const key = data === undefined ? undefined : data.key;
-    return {
-        sel,
-        data,
-        children,
-        text,
-        elm,
-        key
-    };
-}
+parcelHelpers.export(exports, "CEL_COMPONENT_CONNECTED", ()=>CEL_COMPONENT_CONNECTED);
+parcelHelpers.export(exports, "CEL_COMPONENT_UPDATED", ()=>CEL_COMPONENT_UPDATED);
+parcelHelpers.export(exports, "CEL_COMPONENET_DISCONNECTED", ()=>CEL_COMPONENET_DISCONNECTED);
+const CEL_COMPONENT_CONNECTED = "CEL#COMPONENT_CONNECTED";
+const CEL_COMPONENT_UPDATED = "CEL#COMPONENT_UPDATED";
+const CEL_COMPONENET_DISCONNECTED = "CEL#COMPONENT_DISCONNECTED";
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kHAzx":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gjKcs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "array", ()=>array);
-parcelHelpers.export(exports, "primitive", ()=>primitive);
-const array = Array.isArray;
-function primitive(s) {
-    return typeof s === "string" || typeof s === "number" || s instanceof String || s instanceof Number;
-}
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bCpOB":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gYTAE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addNS", ()=>addNS);
-parcelHelpers.export(exports, "h", ()=>h);
-/**
- * @experimental
- */ parcelHelpers.export(exports, "fragment", ()=>fragment);
-var _vnode = require("./vnode");
-var _is = require("./is");
-function addNS(data, children, sel) {
-    data.ns = "http://www.w3.org/2000/svg";
-    if (sel !== "foreignObject" && children !== undefined) for(let i = 0; i < children.length; ++i){
-        const child = children[i];
-        if (typeof child === "string") continue;
-        const childData = child.data;
-        if (childData !== undefined) addNS(childData, child.children, child.sel);
+parcelHelpers.export(exports, "checkIfActionIsInternal", ()=>checkIfActionIsInternal);
+parcelHelpers.export(exports, "getInternalAction", ()=>getInternalAction);
+var _internalActions = require("./internalActions");
+const checkIfActionIsInternal = (name)=>{
+    for(let key in 0, _internalActions.lifeCycleActions){
+        if (name == (0, _internalActions.lifeCycleActions)[key].name) //Action found
+        return (0, _internalActions.lifeCycleActions)[key];
     }
-}
-function h(sel, b, c) {
-    let data = {};
-    let children;
-    let text;
-    let i;
-    if (c !== undefined) {
-        if (b !== null) data = b;
-        if (_is.array(c)) children = c;
-        else if (_is.primitive(c)) text = c.toString();
-        else if (c && c.sel) children = [
-            c
-        ];
-    } else if (b !== undefined && b !== null) {
-        if (_is.array(b)) children = b;
-        else if (_is.primitive(b)) text = b.toString();
-        else if (b && b.sel) children = [
-            b
-        ];
-        else data = b;
+    return;
+};
+const getInternalAction = (name)=>{
+    for(let key in 0, _internalActions.lifeCycleActions){
+        if (name == (0, _internalActions.lifeCycleActions)[key].name) //Action found
+        return (0, _internalActions.lifeCycleActions)[key];
     }
-    if (children !== undefined) {
-        for(i = 0; i < children.length; ++i)if (_is.primitive(children[i])) children[i] = (0, _vnode.vnode)(undefined, undefined, undefined, children[i], undefined);
+    return;
+};
+
+},{"./internalActions":"ffzKV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ffzKV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "lifeCycleActions", ()=>lifeCycleActions);
+var _constants = require("./constants");
+const lifeCycleActions = [
+    {
+        name: (0, _constants.CEL_COMPONENT_CONNECTED),
+        stopPropagation: true
+    },
+    {
+        name: (0, _constants.CEL_COMPONENT_UPDATED),
+        stopPropagation: true
+    },
+    {
+        name: (0, _constants.CEL_COMPONENET_DISCONNECTED),
+        stopPropagation: true
     }
-    if (sel[0] === "s" && sel[1] === "v" && sel[2] === "g" && (sel.length === 3 || sel[3] === "." || sel[3] === "#")) addNS(data, children, sel);
-    return (0, _vnode.vnode)(sel, data, children, text, undefined);
-}
-function fragment(children) {
-    let c;
-    let text;
-    if (_is.array(children)) c = children;
-    else if (_is.primitive(c)) text = children;
-    else if (c && c.sel) c = [
-        children
+];
+
+},{"./constants":"5qBQX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dJiXz":[function(require,module,exports) {
+//Adding polyfills which are used bt firefox
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _schedulerPolyfill = require("scheduler-polyfill");
+if (!window.eventBus) window.eventBus = new Object();
+exports.default = window;
+
+},{"scheduler-polyfill":"ccyS7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ccyS7":[function(require,module,exports) {
+!function() {
+    var e = [
+        "user-blocking",
+        "user-visible",
+        "background"
     ];
-    if (c !== undefined) {
-        for(let i = 0; i < c.length; ++i)if (_is.primitive(c[i])) c[i] = (0, _vnode.vnode)(undefined, undefined, undefined, c[i], undefined);
-    }
-    return (0, _vnode.vnode)(undefined, {}, c, text, undefined);
-}
-
-},{"./vnode":"fNqAR","./is":"kHAzx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4VlVB":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1UVqj":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "classModule", ()=>classModule);
-function updateClass(oldVnode, vnode) {
-    let cur;
-    let name;
-    const elm = vnode.elm;
-    let oldClass = oldVnode.data.class;
-    let klass = vnode.data.class;
-    if (!oldClass && !klass) return;
-    if (oldClass === klass) return;
-    oldClass = oldClass || {};
-    klass = klass || {};
-    for(name in oldClass)if (oldClass[name] && !Object.prototype.hasOwnProperty.call(klass, name)) // was `true` and now not provided
-    elm.classList.remove(name);
-    for(name in klass){
-        cur = klass[name];
-        if (cur !== oldClass[name]) elm.classList[cur ? "add" : "remove"](name);
-    }
-}
-const classModule = {
-    create: updateClass,
-    update: updateClass
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hZwdS":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "eventListenersModule", ()=>eventListenersModule);
-function invokeHandler(handler, vnode, event) {
-    if (typeof handler === "function") // call function handler
-    handler.call(vnode, event, vnode);
-    else if (typeof handler === "object") // call multiple handlers
-    for(let i = 0; i < handler.length; i++)invokeHandler(handler[i], vnode, event);
-}
-function handleEvent(event, vnode) {
-    const name = event.type;
-    const on = vnode.data.on;
-    // call event handler(s) if exists
-    if (on && on[name]) invokeHandler(on[name], vnode, event);
-}
-function createListener() {
-    return function handler(event) {
-        handleEvent(event, handler.vnode);
-    };
-}
-function updateEventListeners(oldVnode, vnode) {
-    const oldOn = oldVnode.data.on;
-    const oldListener = oldVnode.listener;
-    const oldElm = oldVnode.elm;
-    const on = vnode && vnode.data.on;
-    const elm = vnode && vnode.elm;
-    let name;
-    // optimization for reused immutable handlers
-    if (oldOn === on) return;
-    // remove existing listeners which no longer used
-    if (oldOn && oldListener) {
-        // if element changed or deleted we remove all existing listeners unconditionally
-        if (!on) for(name in oldOn)// remove listener if element was changed or existing listeners removed
-        oldElm.removeEventListener(name, oldListener, false);
-        else {
-            for(name in oldOn)// remove listener if existing listener removed
-            if (!on[name]) oldElm.removeEventListener(name, oldListener, false);
+    class t {
+        constructor(){
+            this.channel_ = new MessageChannel, this.sendPort_ = this.channel_.port2, this.messages_ = {}, this.nextMessageHandle_ = 1, this.channel_.port1.onmessage = (e)=>this.onMessageReceived_(e);
+        }
+        queueCallback(e) {
+            var t = this.nextMessageHandle_++;
+            return this.messages_[t] = e, this.sendPort_.postMessage(t), t;
+        }
+        cancelCallback(e) {
+            delete this.messages_[e];
+        }
+        onMessageReceived_(e) {
+            var t = e.data;
+            if (t in this.messages_) {
+                var i = this.messages_[t];
+                delete this.messages_[t], i();
+            }
         }
     }
-    // add new listeners which has not already attached
-    if (on) {
-        // reuse existing listener or create new
-        const listener = vnode.listener = oldVnode.listener || createListener();
-        // update vnode for listener
-        listener.vnode = vnode;
-        // if element changed or added we add all needed listeners unconditionally
-        if (!oldOn) for(name in on)// add listener if element was changed or new listeners added
-        elm.addEventListener(name, listener, false);
-        else {
-            for(name in on)// add listener if new listener added
-            if (!oldOn[name]) elm.addEventListener(name, listener, false);
+    function i() {
+        return i.instance_ || (i.instance_ = new t), i.instance_;
+    }
+    class s {
+        constructor(e, t, i){
+            void 0 === i && (i = 0), this.callback_ = e, this.callbackType_ = null, this.handle_ = null, this.canceled_ = !1, this.schedule_(t, i);
+        }
+        isIdleCallback() {
+            return 0 === this.callbackType_;
+        }
+        cancel() {
+            if (!this.canceled_) switch(this.canceled_ = !0, this.callbackType_){
+                case 0:
+                    cancelIdleCallback(this.handle_);
+                    break;
+                case 1:
+                    clearTimeout(this.handle_);
+                    break;
+                case 2:
+                    i().cancelCallback(this.handle_);
+                    break;
+                default:
+                    throw new TypeError("Unknown CallbackType");
+            }
+        }
+        schedule_(t, s) {
+            if (s && s > 0 || "function" != typeof MessageChannel) return s || (s = 0), this.callbackType_ = 1, void (this.handle_ = setTimeout(()=>{
+                this.runCallback_();
+            }, s));
+            if (!e.includes(t)) throw new TypeError("Invalid task priority : " + t);
+            "background" === t && "function" == typeof requestIdleCallback ? (this.handle_ = requestIdleCallback(()=>{
+                this.runCallback_();
+            }), this.callbackType_ = 0) : (this.handle_ = i().queueCallback(()=>{
+                this.runCallback_();
+            }), this.callbackType_ = 2);
+        }
+        runCallback_() {
+            this.canceled_ || this.callback_();
         }
     }
-}
-const eventListenersModule = {
-    create: updateEventListeners,
-    update: updateEventListeners,
-    destroy: updateEventListeners
-};
+    var r = 0;
+    class a {
+        constructor(){
+            this.head_ = null, this.tail_ = null;
+        }
+        isEmpty() {
+            return null == this.head_;
+        }
+        push(e) {
+            if ("object" != typeof e) throw new TypeError("Task must be an Object");
+            e.tq_sequence_ = r++, this.isEmpty() ? (e.tq_prev_ = null, this.head_ = e) : (e.tq_prev_ = this.tail_, this.tail_.tq_next_ = e), e.tq_next_ = null, this.tail_ = e;
+        }
+        takeNextTask() {
+            if (this.isEmpty()) return null;
+            var e = this.head_;
+            return this.remove_(e), e;
+        }
+        merge(e, t) {
+            if ("function" != typeof t) throw new TypeError("Must provide a selector function.");
+            if (null == e) throw new Error("sourceQueue cannot be null");
+            for(var i = this.head_, s = null, r = e.head_; r;){
+                var a = r;
+                if (r = r.tq_next_, t(a)) {
+                    for(e.remove_(a); i && i.tq_sequence_ < a.tq_sequence_;)s = i, i = i.tq_next_;
+                    this.insert_(a, s), s = a;
+                }
+            }
+        }
+        toArray() {
+            for(var e = this.head_, t = []; null !== e;)t.push(e), e = e.tq_next_;
+            return t;
+        }
+        insert_(e, t) {
+            if (t != this.tail_) {
+                var i = t ? t.tq_next_ : this.head_;
+                e.tq_next_ = i, i.tq_prev_ = e, e.tq_prev_ = t, null != t ? t.tq_next_ = e : this.head_ = e;
+            } else this.push(e);
+        }
+        remove_(e) {
+            if (null == e) throw new Error("Expected task to be non-null");
+            e === this.head_ && (this.head_ = e.tq_next_), e === this.tail_ && (this.tail_ = this.tail_.tq_prev_), e.tq_next_ && (e.tq_next_.tq_prev_ = e.tq_prev_), e.tq_prev_ && (e.tq_prev_.tq_next_ = e.tq_next_);
+        }
+    }
+    class n extends Event {
+        constructor(t, i){
+            if (!i || !e.includes(i.previousPriority)) throw new TypeError("Invalid task priority: '" + i.previousPriority + "'");
+            super(t), this.previousPriority = i.previousPriority;
+        }
+    }
+    class l extends AbortController {
+        constructor(t){
+            if (void 0 === t && (t = {}), super(), null == t && (t = {}), "object" != typeof t) throw new TypeError("'init' is not an object");
+            var i, s, r = void 0 === t.priority ? "user-visible" : t.priority;
+            if (!e.includes(r)) throw new TypeError("Invalid task priority: '" + r + "'");
+            this.priority_ = r, this.isPriorityChanging_ = !1, s = (i = this).signal, Object.defineProperties(s, {
+                priority: {
+                    get: function() {
+                        return i.priority_;
+                    },
+                    enumerable: !0
+                },
+                onprioritychange: {
+                    value: null,
+                    writable: !0,
+                    enumerable: !0
+                }
+            }), s.addEventListener("prioritychange", (e)=>{
+                s.onprioritychange && s.onprioritychange(e);
+            });
+        }
+        setPriority(t) {
+            if (!e.includes(t)) throw new TypeError("Invalid task priority: " + t);
+            if (this.isPriorityChanging_) throw new DOMException("", "NotAllowedError");
+            if (this.signal.priority !== t) {
+                this.isPriorityChanging_ = !0;
+                var i = this.priority_;
+                this.priority_ = t;
+                var s = new n("prioritychange", {
+                    previousPriority: i
+                });
+                this.signal.dispatchEvent(s), this.isPriorityChanging_ = !1;
+            }
+        }
+    }
+    void 0 === self.scheduler && (self.scheduler = new class {
+        constructor(){
+            this.queues_ = {}, e.forEach((e)=>{
+                this.queues_[e] = new a;
+            }), this.pendingHostCallback_ = null, this.signals_ = new WeakMap;
+        }
+        postTask(t, i) {
+            if (void 0 !== (i = Object.assign({}, i)).signal) {
+                if (null === i.signal || !("aborted" in i.signal) || "function" != typeof i.signal.addEventListener) return Promise.reject(new TypeError("'signal' is not a valid 'AbortSignal'"));
+                if (i.signal && i.signal.priority && !e.includes(i.signal.priority)) return Promise.reject(new TypeError("Invalid task priority: '" + i.signal.priority + "'"));
+            }
+            if (void 0 !== i.priority && (null === i.priority || !e.includes(i.priority))) return Promise.reject(new TypeError("Invalid task priority: '" + i.priority + "'"));
+            if (void 0 === i.delay && (i.delay = 0), i.delay = Number(i.delay), i.delay < 0) return Promise.reject(new TypeError("'delay' must be a positive number."));
+            var s = {
+                callback: t,
+                options: i,
+                resolve: null,
+                reject: null,
+                hostCallback: null,
+                abortCallback: null,
+                onTaskCompleted: function() {
+                    this.options.signal && !this.abortCallback && (this.options.signal.removeEventListener("abort", this.abortCallback), this.abortCallback = null);
+                },
+                onTaskAborted: function() {
+                    this.hostCallback && (this.hostCallback.cancel(), this.hostCallback = null), this.options.signal.removeEventListener("abort", this.abortCallback), this.abortCallback = null, this.reject(new DOMException("The task was aborted.", "AbortError"));
+                },
+                isAborted: function() {
+                    return this.options.signal && this.options.signal.aborted;
+                }
+            }, r = new Promise((e, t)=>{
+                s.resolve = e, s.reject = t;
+            });
+            return this.schedule_(s), r;
+        }
+        schedule_(e) {
+            var t = e.options.signal;
+            if (t) {
+                if (t.aborted) return void e.reject(new DOMException("The task was aborted.", "AbortError"));
+                e.abortCallback = ()=>{
+                    e.onTaskAborted();
+                }, t.addEventListener("abort", e.abortCallback);
+            }
+            e.options.delay > 0 ? e.hostCallback = new s(()=>{
+                e.hostCallback = null, this.onTaskDelayExpired_(e);
+            }, null, e.options.delay) : (this.pushTask_(e), this.scheduleHostCallbackIfNeeded_());
+        }
+        onTaskDelayExpired_(e) {
+            this.pushTask_(e), this.pendingHostCallback_ && (this.pendingHostCallback_.cancel(), this.pendingHostCallback_ = null), this.schedulerEntryCallback_();
+        }
+        onPriorityChange_(e) {
+            var t = this.signals_.get(e);
+            if (void 0 === t) throw new Error("Attempting to change priority on an unregistered signal");
+            t !== e.priority && (this.queues_[e.priority].merge(this.queues_[t], (t)=>t.options.signal === e), this.signals_.set(e, e.priority));
+        }
+        schedulerEntryCallback_() {
+            this.pendingHostCallback_ = null, this.runNextTask_(), this.scheduleHostCallbackIfNeeded_();
+        }
+        scheduleHostCallbackIfNeeded_() {
+            var e = this.nextTaskPriority_();
+            null != e && ("background" !== e && this.pendingHostCallback_ && this.pendingHostCallback_.isIdleCallback() && (this.pendingHostCallback_.cancel(), this.pendingHostCallback_ = null), this.pendingHostCallback_ || (this.pendingHostCallback_ = new s(()=>{
+                this.schedulerEntryCallback_();
+            }, e, 0)));
+        }
+        pushTask_(t) {
+            var i;
+            if (!e.includes(i = t.options.priority ? t.options.priority : t.options.signal && t.options.signal.priority ? t.options.signal.priority : "user-visible")) throw new TypeError("Invalid task priority: " + i);
+            if (t.options.signal && t.options.signal.priority) {
+                var s = t.options.signal;
+                this.signals_.has(s) || (s.addEventListener("prioritychange", ()=>{
+                    this.onPriorityChange_(s);
+                }), this.signals_.set(s, s.priority));
+            }
+            this.queues_[i].push(t);
+        }
+        runNextTask_() {
+            var e = null;
+            do {
+                var t = this.nextTaskPriority_();
+                if (null == t) return;
+                e = this.queues_[t].takeNextTask();
+            }while (e.isAborted());
+            try {
+                var i = e.callback();
+                e.resolve(i);
+            } catch (t) {
+                e.reject(t);
+            } finally{
+                e.onTaskCompleted();
+            }
+        }
+        nextTaskPriority_() {
+            for(var t = 0; t < e.length; t++){
+                var i = e[t];
+                if (!this.queues_[i].isEmpty()) return i;
+            }
+            return null;
+        }
+    }, self.TaskController = l, self.TaskPriorityChangeEvent = n);
+}();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lumw8":[function(require,module,exports) {
+},{}],"88gs8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "propsModule", ()=>propsModule);
-function updateProps(oldVnode, vnode) {
-    let key;
-    let cur;
-    let old;
-    const elm = vnode.elm;
-    let oldProps = oldVnode.data.props;
-    let props = vnode.data.props;
-    if (!oldProps && !props) return;
-    if (oldProps === props) return;
-    oldProps = oldProps || {};
-    props = props || {};
-    for(key in props){
-        cur = props[key];
-        old = oldProps[key];
-        if (old !== cur && (key !== "value" || elm[key] !== cur)) elm[key] = cur;
-    }
-}
-const propsModule = {
-    create: updateProps,
-    update: updateProps
+exports.default = async (el, styles = "")=>{
+    if (Document && "adoptedStyleSheets" in Document.prototype) return applyWithStyleSheets(el, styles);
+    //Browser might not support cssstylesheet so fallback to tag name
+    return applyWithTagName(el, styles);
 };
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6POOZ":[function(require,module,exports) {
-// Bindig `requestAnimationFrame` like this fixes a bug in IE/Edge. See #360 and #409.
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "styleModule", ()=>styleModule);
-const raf = typeof window !== "undefined" && window.requestAnimationFrame.bind(window) || setTimeout;
-const nextFrame = function(fn) {
-    raf(function() {
-        raf(fn);
-    });
+const applyWithStyleSheets = async (el, styles = "")=>{
+    const shadowRoot = el;
+    if (shadowRoot && styles) {
+        var sheet = new CSSStyleSheet();
+        sheet.replaceSync(`${styles}`);
+        shadowRoot.adoptedStyleSheets = [
+            sheet
+        ];
+    }
 };
-let reflowForced = false;
-function setNextFrame(obj, prop, val) {
-    nextFrame(function() {
-        obj[prop] = val;
-    });
-}
-function updateStyle(oldVnode, vnode) {
-    let cur;
-    let name;
-    const elm = vnode.elm;
-    let oldStyle = oldVnode.data.style;
-    let style = vnode.data.style;
-    if (!oldStyle && !style) return;
-    if (oldStyle === style) return;
-    oldStyle = oldStyle || {};
-    style = style || {};
-    const oldHasDel = "delayed" in oldStyle;
-    for(name in oldStyle)if (!style[name]) {
-        if (name[0] === "-" && name[1] === "-") elm.style.removeProperty(name);
-        else elm.style[name] = "";
-    }
-    for(name in style){
-        cur = style[name];
-        if (name === "delayed" && style.delayed) for(const name2 in style.delayed){
-            cur = style.delayed[name2];
-            if (!oldHasDel || cur !== oldStyle.delayed[name2]) setNextFrame(elm.style, name2, cur);
-        }
-        else if (name !== "remove" && cur !== oldStyle[name]) {
-            if (name[0] === "-" && name[1] === "-") elm.style.setProperty(name, cur);
-            else elm.style[name] = cur;
-        }
-    }
-}
-function applyDestroyStyle(vnode) {
-    let style;
-    let name;
-    const elm = vnode.elm;
-    const s = vnode.data.style;
-    if (!s || !(style = s.destroy)) return;
-    for(name in style)elm.style[name] = style[name];
-}
-function applyRemoveStyle(vnode, rm) {
-    const s = vnode.data.style;
-    if (!s || !s.remove) {
-        rm();
-        return;
-    }
-    if (!reflowForced) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        vnode.elm.offsetLeft;
-        reflowForced = true;
-    }
-    let name;
-    const elm = vnode.elm;
-    let i = 0;
-    const style = s.remove;
-    let amount = 0;
-    const applied = [];
-    for(name in style){
-        applied.push(name);
-        elm.style[name] = style[name];
-    }
-    const compStyle = getComputedStyle(elm);
-    const props = compStyle["transition-property"].split(", ");
-    for(; i < props.length; ++i)if (applied.indexOf(props[i]) !== -1) amount++;
-    elm.addEventListener("transitionend", function(ev) {
-        if (ev.target === elm) --amount;
-        if (amount === 0) rm();
-    });
-}
-function forceReflow() {
-    reflowForced = false;
-}
-const styleModule = {
-    pre: forceReflow,
-    create: updateStyle,
-    update: updateStyle,
-    destroy: applyDestroyStyle,
-    remove: applyRemoveStyle
+const applyWithTagName = async (el, styles = "")=>{
+//Need to implement
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3qBDj":[function(require,module,exports) {
@@ -15856,398 +18205,7 @@ var global = arguments[3];
     root._ = _;
 }).call(this);
 
-},{}],"15xyW":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "actionHandlerFactory", ()=>(0, _actionHandlerFactory.actionHandlerFactory));
-parcelHelpers.export(exports, "eventBusHandlerFactory", ()=>(0, _actionHandlerFactory.eventBusHandlerFactory));
-parcelHelpers.export(exports, "internalActions", ()=>internalActions);
-parcelHelpers.export(exports, "actionUtils", ()=>_utils);
-parcelHelpers.export(exports, "Types", ()=>_types);
-var _actionHandlerFactory = require("./actionHandlerFactory");
-var _constants = require("./constants");
-var _types = require("./types");
-var _utils = require("./utils");
-const internalActions = {
-    CEL_COMPONENT_CONNECTED: (0, _constants.CEL_COMPONENT_CONNECTED),
-    CEL_COMPONENT_UPDATED: (0, _constants.CEL_COMPONENT_UPDATED),
-    CEL_COMPONENET_DISCONNECTED: (0, _constants.CEL_COMPONENET_DISCONNECTED)
-};
-
-},{"./actionHandlerFactory":"gf0iw","./constants":"a7Tom","./types":"gYf0K","./utils":"e1EFQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gf0iw":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "actionHandlerFactory", ()=>actionHandlerFactory);
-parcelHelpers.export(exports, "eventBusHandlerFactory", ()=>eventBusHandlerFactory);
-function actionHandlerFactory({ getState , updateState  }, handler, props) {
-    //Payload is added for eventBus event payload
-    return function(e) {
-        let event;
-        if (e && e.detail) event = {
-            name: e.detail.name,
-            payload: e.detail.payload,
-            meta: e.detail.meta
-        };
-        else event = e;
-        handler({
-            state: getState(),
-            updateState,
-            event,
-            props
-        });
-    };
-}
-function eventBusHandlerFactory({ getState , updateState  }, handler, props, host) {
-    //Payload is added for eventBus event payload
-    return function(payload = {}) {
-        handler({
-            state: getState(),
-            updateState,
-            event: payload,
-            props,
-            host: host
-        });
-    };
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a7Tom":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "CEL_COMPONENT_CONNECTED", ()=>CEL_COMPONENT_CONNECTED);
-parcelHelpers.export(exports, "CEL_COMPONENT_UPDATED", ()=>CEL_COMPONENT_UPDATED);
-parcelHelpers.export(exports, "CEL_COMPONENET_DISCONNECTED", ()=>CEL_COMPONENET_DISCONNECTED);
-const CEL_COMPONENT_CONNECTED = "CEL#COMPONENT_CONNECTED";
-const CEL_COMPONENT_UPDATED = "CEL#COMPONENT_UPDATED";
-const CEL_COMPONENET_DISCONNECTED = "CEL#COMPONENT_DISCONNECTED";
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gYf0K":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e1EFQ":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "checkIfActionIsInternal", ()=>checkIfActionIsInternal);
-parcelHelpers.export(exports, "getInternalAction", ()=>getInternalAction);
-var _internalActions = require("./internalActions");
-const checkIfActionIsInternal = (name)=>{
-    for(let key in 0, _internalActions.lifeCycleActions){
-        if (name == (0, _internalActions.lifeCycleActions)[key].name) //Action found
-        return (0, _internalActions.lifeCycleActions)[key];
-    }
-    return;
-};
-const getInternalAction = (name)=>{
-    for(let key in 0, _internalActions.lifeCycleActions){
-        if (name == (0, _internalActions.lifeCycleActions)[key].name) //Action found
-        return (0, _internalActions.lifeCycleActions)[key];
-    }
-    return;
-};
-
-},{"./internalActions":"jE10y","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jE10y":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "lifeCycleActions", ()=>lifeCycleActions);
-var _constants = require("./constants");
-const lifeCycleActions = [
-    {
-        name: (0, _constants.CEL_COMPONENT_CONNECTED),
-        stopPropagation: true
-    },
-    {
-        name: (0, _constants.CEL_COMPONENT_UPDATED),
-        stopPropagation: true
-    },
-    {
-        name: (0, _constants.CEL_COMPONENET_DISCONNECTED),
-        stopPropagation: true
-    }
-];
-
-},{"./constants":"a7Tom","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bmjJS":[function(require,module,exports) {
-//Adding polyfills which are used bt firefox
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _schedulerPolyfill = require("scheduler-polyfill");
-if (!window.eventBus) window.eventBus = new Object();
-exports.default = window;
-
-},{"scheduler-polyfill":"ccyS7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ccyS7":[function(require,module,exports) {
-!function() {
-    var e = [
-        "user-blocking",
-        "user-visible",
-        "background"
-    ];
-    class t {
-        constructor(){
-            this.channel_ = new MessageChannel, this.sendPort_ = this.channel_.port2, this.messages_ = {}, this.nextMessageHandle_ = 1, this.channel_.port1.onmessage = (e)=>this.onMessageReceived_(e);
-        }
-        queueCallback(e) {
-            var t = this.nextMessageHandle_++;
-            return this.messages_[t] = e, this.sendPort_.postMessage(t), t;
-        }
-        cancelCallback(e) {
-            delete this.messages_[e];
-        }
-        onMessageReceived_(e) {
-            var t = e.data;
-            if (t in this.messages_) {
-                var i = this.messages_[t];
-                delete this.messages_[t], i();
-            }
-        }
-    }
-    function i() {
-        return i.instance_ || (i.instance_ = new t), i.instance_;
-    }
-    class s {
-        constructor(e, t, i){
-            void 0 === i && (i = 0), this.callback_ = e, this.callbackType_ = null, this.handle_ = null, this.canceled_ = !1, this.schedule_(t, i);
-        }
-        isIdleCallback() {
-            return 0 === this.callbackType_;
-        }
-        cancel() {
-            if (!this.canceled_) switch(this.canceled_ = !0, this.callbackType_){
-                case 0:
-                    cancelIdleCallback(this.handle_);
-                    break;
-                case 1:
-                    clearTimeout(this.handle_);
-                    break;
-                case 2:
-                    i().cancelCallback(this.handle_);
-                    break;
-                default:
-                    throw new TypeError("Unknown CallbackType");
-            }
-        }
-        schedule_(t, s) {
-            if (s && s > 0 || "function" != typeof MessageChannel) return s || (s = 0), this.callbackType_ = 1, void (this.handle_ = setTimeout(()=>{
-                this.runCallback_();
-            }, s));
-            if (!e.includes(t)) throw new TypeError("Invalid task priority : " + t);
-            "background" === t && "function" == typeof requestIdleCallback ? (this.handle_ = requestIdleCallback(()=>{
-                this.runCallback_();
-            }), this.callbackType_ = 0) : (this.handle_ = i().queueCallback(()=>{
-                this.runCallback_();
-            }), this.callbackType_ = 2);
-        }
-        runCallback_() {
-            this.canceled_ || this.callback_();
-        }
-    }
-    var r = 0;
-    class a {
-        constructor(){
-            this.head_ = null, this.tail_ = null;
-        }
-        isEmpty() {
-            return null == this.head_;
-        }
-        push(e) {
-            if ("object" != typeof e) throw new TypeError("Task must be an Object");
-            e.tq_sequence_ = r++, this.isEmpty() ? (e.tq_prev_ = null, this.head_ = e) : (e.tq_prev_ = this.tail_, this.tail_.tq_next_ = e), e.tq_next_ = null, this.tail_ = e;
-        }
-        takeNextTask() {
-            if (this.isEmpty()) return null;
-            var e = this.head_;
-            return this.remove_(e), e;
-        }
-        merge(e, t) {
-            if ("function" != typeof t) throw new TypeError("Must provide a selector function.");
-            if (null == e) throw new Error("sourceQueue cannot be null");
-            for(var i = this.head_, s = null, r = e.head_; r;){
-                var a = r;
-                if (r = r.tq_next_, t(a)) {
-                    for(e.remove_(a); i && i.tq_sequence_ < a.tq_sequence_;)s = i, i = i.tq_next_;
-                    this.insert_(a, s), s = a;
-                }
-            }
-        }
-        toArray() {
-            for(var e = this.head_, t = []; null !== e;)t.push(e), e = e.tq_next_;
-            return t;
-        }
-        insert_(e, t) {
-            if (t != this.tail_) {
-                var i = t ? t.tq_next_ : this.head_;
-                e.tq_next_ = i, i.tq_prev_ = e, e.tq_prev_ = t, null != t ? t.tq_next_ = e : this.head_ = e;
-            } else this.push(e);
-        }
-        remove_(e) {
-            if (null == e) throw new Error("Expected task to be non-null");
-            e === this.head_ && (this.head_ = e.tq_next_), e === this.tail_ && (this.tail_ = this.tail_.tq_prev_), e.tq_next_ && (e.tq_next_.tq_prev_ = e.tq_prev_), e.tq_prev_ && (e.tq_prev_.tq_next_ = e.tq_next_);
-        }
-    }
-    class n extends Event {
-        constructor(t, i){
-            if (!i || !e.includes(i.previousPriority)) throw new TypeError("Invalid task priority: '" + i.previousPriority + "'");
-            super(t), this.previousPriority = i.previousPriority;
-        }
-    }
-    class l extends AbortController {
-        constructor(t){
-            if (void 0 === t && (t = {}), super(), null == t && (t = {}), "object" != typeof t) throw new TypeError("'init' is not an object");
-            var i, s, r = void 0 === t.priority ? "user-visible" : t.priority;
-            if (!e.includes(r)) throw new TypeError("Invalid task priority: '" + r + "'");
-            this.priority_ = r, this.isPriorityChanging_ = !1, s = (i = this).signal, Object.defineProperties(s, {
-                priority: {
-                    get: function() {
-                        return i.priority_;
-                    },
-                    enumerable: !0
-                },
-                onprioritychange: {
-                    value: null,
-                    writable: !0,
-                    enumerable: !0
-                }
-            }), s.addEventListener("prioritychange", (e)=>{
-                s.onprioritychange && s.onprioritychange(e);
-            });
-        }
-        setPriority(t) {
-            if (!e.includes(t)) throw new TypeError("Invalid task priority: " + t);
-            if (this.isPriorityChanging_) throw new DOMException("", "NotAllowedError");
-            if (this.signal.priority !== t) {
-                this.isPriorityChanging_ = !0;
-                var i = this.priority_;
-                this.priority_ = t;
-                var s = new n("prioritychange", {
-                    previousPriority: i
-                });
-                this.signal.dispatchEvent(s), this.isPriorityChanging_ = !1;
-            }
-        }
-    }
-    void 0 === self.scheduler && (self.scheduler = new class {
-        constructor(){
-            this.queues_ = {}, e.forEach((e)=>{
-                this.queues_[e] = new a;
-            }), this.pendingHostCallback_ = null, this.signals_ = new WeakMap;
-        }
-        postTask(t, i) {
-            if (void 0 !== (i = Object.assign({}, i)).signal) {
-                if (null === i.signal || !("aborted" in i.signal) || "function" != typeof i.signal.addEventListener) return Promise.reject(new TypeError("'signal' is not a valid 'AbortSignal'"));
-                if (i.signal && i.signal.priority && !e.includes(i.signal.priority)) return Promise.reject(new TypeError("Invalid task priority: '" + i.signal.priority + "'"));
-            }
-            if (void 0 !== i.priority && (null === i.priority || !e.includes(i.priority))) return Promise.reject(new TypeError("Invalid task priority: '" + i.priority + "'"));
-            if (void 0 === i.delay && (i.delay = 0), i.delay = Number(i.delay), i.delay < 0) return Promise.reject(new TypeError("'delay' must be a positive number."));
-            var s = {
-                callback: t,
-                options: i,
-                resolve: null,
-                reject: null,
-                hostCallback: null,
-                abortCallback: null,
-                onTaskCompleted: function() {
-                    this.options.signal && !this.abortCallback && (this.options.signal.removeEventListener("abort", this.abortCallback), this.abortCallback = null);
-                },
-                onTaskAborted: function() {
-                    this.hostCallback && (this.hostCallback.cancel(), this.hostCallback = null), this.options.signal.removeEventListener("abort", this.abortCallback), this.abortCallback = null, this.reject(new DOMException("The task was aborted.", "AbortError"));
-                },
-                isAborted: function() {
-                    return this.options.signal && this.options.signal.aborted;
-                }
-            }, r = new Promise((e, t)=>{
-                s.resolve = e, s.reject = t;
-            });
-            return this.schedule_(s), r;
-        }
-        schedule_(e) {
-            var t = e.options.signal;
-            if (t) {
-                if (t.aborted) return void e.reject(new DOMException("The task was aborted.", "AbortError"));
-                e.abortCallback = ()=>{
-                    e.onTaskAborted();
-                }, t.addEventListener("abort", e.abortCallback);
-            }
-            e.options.delay > 0 ? e.hostCallback = new s(()=>{
-                e.hostCallback = null, this.onTaskDelayExpired_(e);
-            }, null, e.options.delay) : (this.pushTask_(e), this.scheduleHostCallbackIfNeeded_());
-        }
-        onTaskDelayExpired_(e) {
-            this.pushTask_(e), this.pendingHostCallback_ && (this.pendingHostCallback_.cancel(), this.pendingHostCallback_ = null), this.schedulerEntryCallback_();
-        }
-        onPriorityChange_(e) {
-            var t = this.signals_.get(e);
-            if (void 0 === t) throw new Error("Attempting to change priority on an unregistered signal");
-            t !== e.priority && (this.queues_[e.priority].merge(this.queues_[t], (t)=>t.options.signal === e), this.signals_.set(e, e.priority));
-        }
-        schedulerEntryCallback_() {
-            this.pendingHostCallback_ = null, this.runNextTask_(), this.scheduleHostCallbackIfNeeded_();
-        }
-        scheduleHostCallbackIfNeeded_() {
-            var e = this.nextTaskPriority_();
-            null != e && ("background" !== e && this.pendingHostCallback_ && this.pendingHostCallback_.isIdleCallback() && (this.pendingHostCallback_.cancel(), this.pendingHostCallback_ = null), this.pendingHostCallback_ || (this.pendingHostCallback_ = new s(()=>{
-                this.schedulerEntryCallback_();
-            }, e, 0)));
-        }
-        pushTask_(t) {
-            var i;
-            if (!e.includes(i = t.options.priority ? t.options.priority : t.options.signal && t.options.signal.priority ? t.options.signal.priority : "user-visible")) throw new TypeError("Invalid task priority: " + i);
-            if (t.options.signal && t.options.signal.priority) {
-                var s = t.options.signal;
-                this.signals_.has(s) || (s.addEventListener("prioritychange", ()=>{
-                    this.onPriorityChange_(s);
-                }), this.signals_.set(s, s.priority));
-            }
-            this.queues_[i].push(t);
-        }
-        runNextTask_() {
-            var e = null;
-            do {
-                var t = this.nextTaskPriority_();
-                if (null == t) return;
-                e = this.queues_[t].takeNextTask();
-            }while (e.isAborted());
-            try {
-                var i = e.callback();
-                e.resolve(i);
-            } catch (t) {
-                e.reject(t);
-            } finally{
-                e.onTaskCompleted();
-            }
-        }
-        nextTaskPriority_() {
-            for(var t = 0; t < e.length; t++){
-                var i = e[t];
-                if (!this.queues_[i].isEmpty()) return i;
-            }
-            return null;
-        }
-    }, self.TaskController = l, self.TaskPriorityChangeEvent = n);
-}();
-
-},{}],"5bhdu":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-exports.default = async (el, styles = "")=>{
-    if (Document && "adoptedStyleSheets" in Document.prototype) return applyWithStyleSheets(el, styles);
-    //Browser might not support cssstylesheet so fallback to tag name
-    return applyWithTagName(el, styles);
-};
-const applyWithStyleSheets = async (el, styles = "")=>{
-    const shadowRoot = el;
-    if (shadowRoot && styles) {
-        var sheet = new CSSStyleSheet();
-        sheet.replaceSync(`${styles}`);
-        shadowRoot.adoptedStyleSheets = [
-            sheet
-        ];
-    }
-};
-const applyWithTagName = async (el, styles = "")=>{
-//Need to implement
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6s0fl":[function(require,module,exports) {
+},{}],"7ysb8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "BROWSER_IDLE_TIMEOUT", ()=>BROWSER_IDLE_TIMEOUT);
@@ -16259,7 +18217,7 @@ const PROPS = Symbol("props");
 const STATE = Symbol("state");
 const CEL_HOST = Symbol("cel_host");
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9VcNe":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kGWtf":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addCelHostToChildren", ()=>addCelHostToChildren);
@@ -16276,205 +18234,35 @@ const addCelHostToChildren = async (el, children)=>{
     else return;
 };
 
-},{"./constants":"6s0fl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1owbD":[function(require,module,exports) {
+},{"./constants":"7ysb8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"HRHZo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createElement = require("./createElement");
 exports.default = (0, _createElement.Celerity);
 
-},{"./createElement":"f7nYd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f7nYd":[function(require,module,exports) {
-/* eslint-disable @typescript-eslint/no-namespace, import/export */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+},{"./createElement":"gP24C","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gP24C":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Celerity", ()=>Celerity);
-var _snabbdom = require("snabbdom");
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-var _snabbdomSignature = require("snabbdom-signature");
-var _formatProps = require("./formatProps");
-var _formatPropsDefault = parcelHelpers.interopDefault(_formatProps);
-var _jsx = require("./jsx");
-const patch = (0, _snabbdom.init)([
-    // Init patch function with chosen modules
-    (0, _snabbdom.classModule),
-    // makes it easy to toggle classes
-    (0, _snabbdom.propsModule),
-    // for setting properties on DOM elements
-    (0, _snabbdom.styleModule),
-    // handles styling on elements with support for animations
-    (0, _snabbdom.eventListenersModule // attaches event listeners
-    )
-]);
-const signedH = (0, _snabbdomSignature.signingH)((0, _snabbdom.h));
 if (!window.eventBus) window.eventBus = new Object();
-const appendChild = (parent, child)=>{
-    if (Array.isArray(child)) child.forEach((nestedChild)=>appendChild(parent, nestedChild));
-    else parent.appendChild(child.nodeType ? child : document.createTextNode(child));
-};
-let Celerity;
+var Celerity;
 (function(Celerity) {
-    function createElement(tag, props, ...children) {
-        //Adding here for nested compoments to work..!
-        if (children.length == 1 && children[0] instanceof Array) children = children[0];
-        // Handling for supporting Array.map
-        let filteredChildren = [];
-        for(let key in children){
-            if (children[key] && children[key].length >= 0 && children[key] instanceof Array) for(let innerKey in children[key])filteredChildren.push(children[key][innerKey]);
-            else filteredChildren.push(children[key]);
-        }
-        const formatedProps = (0, _formatPropsDefault.default)(props);
-        //Create snabbdom element
-        const element = signedH(tag, formatedProps, filteredChildren);
-        return element;
-    }
-    Celerity.createElement = createElement;
     function Render(node, container) {
-        const vNode = patch(container, node);
-        return vNode;
+        if (container && node) container.appendChild(node);
     }
     Celerity.Render = Render;
-    var JSX = (0, _jsx.JSXInternal);
-    Celerity.JSX = JSX;
 })(Celerity || (Celerity = {}));
 
-},{"snabbdom":"Rkydo","snabbdom-signature":"kcFF8","./formatProps":"kRCaM","./jsx":"8q3Mq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kcFF8":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.sign = exports.removeSignature = exports.denyUnlessSigned = exports.signingH = exports.signedData = void 0;
-function _typeof(obj) {
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") _typeof = function _typeof(obj) {
-        return typeof obj;
-    };
-    else _typeof = function _typeof(obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-    return _typeof(obj);
-}
-function _defineProperty(obj, key, value) {
-    if (key in obj) Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-    });
-    else obj[key] = value;
-    return obj;
-}
-var signatureKey = "snabbdom_signature";
-var signature = Symbol.for(signatureKey);
-var signedData = _defineProperty({}, signatureKey, signature);
-exports.signedData = signedData;
-var signData = function signData(data) {
-    return Object.assign({}, data, signedData);
-};
-var isPlainTextNode = function isPlainTextNode(vnode) {
-    return vnode.children === undefined && vnode.data === undefined && vnode.key === undefined;
-};
-var isSigned = function isSigned(vnode) {
-    return vnode.data ? vnode.data[signatureKey] === signature : isPlainTextNode(vnode);
-};
-var removeSignatureFromData = function removeSignatureFromData(data) {
-    return Object.assign({}, data, _defineProperty({}, signatureKey, undefined));
-};
-var isPrimitive = function isPrimitive(a) {
-    return [
-        "string",
-        "number"
-    ].includes(_typeof(a));
-};
-var signingH = function signingH(defaultH) {
-    return function(sel, b, c) {
-        if (c !== undefined) // a - sel, b - data, c - primitive/child/children
-        return defaultH(sel, signData(b), c);
-        else if (b === undefined) // a - sel
-        return defaultH(sel, signedData);
-        else if (Array.isArray(b) || b.sel || isPrimitive(b)) // a - sel, b - primitive/child/children
-        return defaultH(sel, signedData, b);
-        else // a - sel, b - data
-        return defaultH(sel, signData(b));
-    };
-};
-exports.signingH = signingH;
-var denyUnlessSignedHook = function denyUnlessSignedHook(oldVnode, vnode) {
-    if (!isSigned(vnode)) throw new Error("Patching with a vnode which is not correctly signed!");
-};
-var denyUnlessSigned = {
-    create: denyUnlessSignedHook,
-    update: denyUnlessSignedHook
-};
-exports.denyUnlessSigned = denyUnlessSigned;
-var processDataRecursively = function processDataRecursively(checkIfValidVnode, dataProcessFn) {
-    var fn = function fn(tree) {
-        checkIfValidVnode(tree);
-        var data = dataProcessFn(tree.data);
-        var children = tree.children ? tree.children.map(fn) : undefined;
-        return Object.assign({}, tree, {
-            data: data,
-            children: children
-        });
-    };
-    return fn;
-};
-var removeSignature = processDataRecursively(function(vnode) {
-    if (!isSigned(vnode)) throw new Error("Unable to remove the signature, because the vnode is not signed.");
-}, removeSignatureFromData);
-exports.removeSignature = removeSignature;
-var sign = processDataRecursively(function() {}, signData);
-exports.sign = sign;
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gxMhi":[function(require,module,exports) {
+var _constants = require("./constants");
 
-},{}],"kRCaM":[function(require,module,exports) {
+},{"./constants":"7ysb8"}],"1tcpE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _lodash = require("lodash");
-var _lodashDefault = parcelHelpers.interopDefault(_lodash);
-var _constants = require("../constants");
-var _actions = require("../actions");
-const updateHook = (e1, e2)=>{
-    //console.log("Update hook called", _e1, e2);
-    if (e2.elm && e2.elm._render) {
-        let newProps = {};
-        for(let key in e2.elm[0, _constants.PROPS])newProps[key] = e2.elm.getAttribute(key);
-        if ((0, _lodashDefault.default).isEqual(e1.elm[0, _constants.PROPS], newProps)) //Props didnt change, not rerendering
-        return;
-        e2.elm._render();
-        //Dispath update lifecycle action
-        e2.elm.dispatchEventBusEvent((0, _actions.internalActions).CEL_COMPONENT_UPDATED, {}, {
-            target: e2.elm
-        });
-    }
-};
-exports.default = (props)=>{
-    const events = {};
-    const propsData = {};
-    for(const key in props)if (key.startsWith("on")) {
-        const eventName = key.slice(2).toLowerCase();
-        events[eventName] = props[key];
-    } else propsData[key] = props[key];
-    //result is the final data with props and events
-    const result = {
-        hook: {
-            update: updateHook
-        }
-    };
-    if (propsData && Object.keys(propsData).length > 0) result.props = propsData;
-    if (events && Object.keys(events).length > 0) result.on = events;
-    return result;
-};
-
-},{"lodash":"3qBDj","../constants":"6s0fl","../actions":"15xyW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8q3Mq":[function(require,module,exports) {
-/* eslint-disable @typescript-eslint/no-namespace, import/export */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hlMY6":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1tcpE":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _web = require("solid-js/web");
 var _appCss = require("bundle-text:./App.css");
 var _appCssDefault = parcelHelpers.interopDefault(_appCss);
-var _index = require("../../src/index");
+var _core = require("@celerityjs/core");
+const _tmpl$ = /*#__PURE__*/ (0, _web.template)(`<div class="app"><div class="app_wrapper"><header class="header"><div class="header_wrapper"><p class="logo">Celerity</header><div class="hero"><div class="hero_wrapper"><div class="hero_left"><h1 class="hero_title">The official website of<span class="hero_title_celerity">Celerity</span>JS</h1><p class="hero_subtitle">library for building reusable, scalable Design Systems. Generate small, blazing fast Web Components that run everywhere. Complete Typescript for safe code execution.</p><p class="hero_subtitle">Built with love ❤️ for future of open web!</p><div><a href="#" class="hero_button"><span class=""> Learn More</span></a><div></div></div></div><div class="hero_right"><div id="plot" class="plot"></div><input class="typeInput" placeholder="Type something here">`);
 function generateRandomData(numPoints) {
     let data = [];
     for(let i = 0; i < numPoints; i++){
@@ -16487,7 +18275,7 @@ function generateRandomData(numPoints) {
     }
     return data;
 }
-const renderPlot = async (numPoints, chart)=>{
+const renderPlot = (numPoints, chart)=>{
     const width = window.innerWidth / 2 - 400 < 0 ? window.innerWidth / 2 + 100 : window.innerWidth / 2 - 400;
     const height = 550;
     const data = generateRandomData(numPoints);
@@ -16515,63 +18303,15 @@ function App({ state  }) {
     const setInput = (e)=>{
         e.preventDefault();
         const len = e.target.value.length * 100;
-        if (state.chart) renderPlot(len, state.chart);
+        if (state.chart()) renderPlot(len, state.chart());
     };
-    return (0, _index.Celerity).createElement("div", {
-        className: "app"
-    }, (0, _index.Celerity).createElement("div", {
-        className: "app_wrapper"
-    }, (0, _index.Celerity).createElement("header", {
-        className: "header"
-    }, (0, _index.Celerity).createElement("div", {
-        className: "header_wrapper"
-    }, (0, _index.Celerity).createElement("p", {
-        className: "logo"
-    }, "Celerity"), (0, _index.Celerity).createElement("ul", {
-        className: "nav_links"
-    }, (0, _index.Celerity).createElement("a", {
-        href: "#",
-        className: "nav_link"
-    }, "Home"), (0, _index.Celerity).createElement("a", {
-        href: "#",
-        className: "nav_link"
-    }, "About"), (0, _index.Celerity).createElement("a", {
-        href: "#",
-        className: "nav_link"
-    }, "Story"), (0, _index.Celerity).createElement("a", {
-        href: "#",
-        className: "button nav_button"
-    }, "Get Started")))), (0, _index.Celerity).createElement("div", {
-        className: "hero"
-    }, (0, _index.Celerity).createElement("div", {
-        className: "hero_wrapper"
-    }, (0, _index.Celerity).createElement("div", {
-        className: "hero_left"
-    }, (0, _index.Celerity).createElement("h1", {
-        className: "hero_title"
-    }, "The official website of", (0, _index.Celerity).createElement("span", {
-        className: "hero_title_celerity"
-    }, " ", "Celerity", ""), "JS"), (0, _index.Celerity).createElement("p", {
-        className: "hero_subtitle"
-    }, "library for building reusable, scalable Design Systems. Generate small, blazing fast Web Components that run everywhere. Complete Typescript for safe code execution."), (0, _index.Celerity).createElement("p", {
-        className: "hero_subtitle"
-    }, "Built with love ❤️ for future of open web!"), (0, _index.Celerity).createElement("div", null, (0, _index.Celerity).createElement("a", {
-        href: "#",
-        className: "hero_button"
-    }, " ", (0, _index.Celerity).createElement("span", {
-        className: ""
-    }, " Learn More")), (0, _index.Celerity).createElement("div", null))), (0, _index.Celerity).createElement("div", {
-        className: "hero_right"
-    }, (0, _index.Celerity).createElement("div", {
-        id: "plot",
-        className: "plot"
-    }), (0, _index.Celerity).createElement("input", {
-        className: "typeInput",
-        oninput: setInput,
-        placeholder: "Type something here"
-    }, "TypeHere"))))));
+    return (()=>{
+        const _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling, _el$8 = _el$7.firstChild, _el$9 = _el$8.nextSibling;
+        _el$9.$$input = setInput;
+        return _el$;
+    })();
 }
-(0, _index.Component)("main-app", {
+(0, _core.Component)("main-app", {
     state: {
         input: 10,
         chart: null
@@ -16585,7 +18325,6 @@ function App({ state  }) {
             handler: async ({ host , updateState , state  })=>{
                 const chart = d3.select(host.shadowRoot.querySelectorAll("#plot")[0]).append("svg");
                 updateState({
-                    ...state,
                     chart: chart
                 });
                 renderPlot(50, chart);
@@ -16593,10 +18332,13 @@ function App({ state  }) {
         }
     ]
 });
+(0, _web.delegateEvents)([
+    "input"
+]);
 
-},{"bundle-text:./App.css":"an5XU","../../src/index":"h7u1C","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"an5XU":[function(require,module,exports) {
+},{"solid-js/web":"1DGm0","bundle-text:./App.css":"an5XU","@celerityjs/core":"hYM5F","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"an5XU":[function(require,module,exports) {
 module.exports = ".app {\n  box-sizing: border-box;\n  align-items: center;\n  margin: 0;\n  padding: 0;\n  font-family: Oswald, sans-serif;\n}\n\na {\n  color: inherit;\n  text-decoration: none;\n}\n\nbutton {\n  cursor: pointer;\n  border: none;\n  outline: none;\n}\n\n.header {\n  height: 80px;\n  color: #000;\n  background: #fff;\n  justify-content: center;\n  align-items: center;\n  padding-left: 50px;\n  padding-right: 50px;\n  display: flex;\n}\n\n.header_wrapper {\n  height: 100%;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n  display: flex;\n}\n\n.logo {\n  color: #2f51fe;\n  font-size: 2rem;\n  font-weight: 900;\n}\n\n.nav_links {\n  align-items: center;\n  gap: 2.5rem;\n  display: flex;\n}\n\n.nav_link {\n  font-size: 1.2rem;\n  transition: all .4s;\n  position: relative;\n}\n\n.nav_link:hover {\n  transform: scale(1.1);\n}\n\n.nav_link:after {\n  content: \" \";\n  width: 0;\n  height: 3px;\n  background: #2f51fe;\n  transition: all .4s;\n  position: absolute;\n  bottom: -.1rem;\n  left: 0;\n}\n\n.nav_link:hover:after {\n  width: 100%;\n}\n\n.button {\n  height: 50px;\n  width: 150px;\n  color: #fff;\n  background: #2f51fe;\n  border-radius: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: bold;\n  display: flex;\n}\n\n.hero {\n  min-height: calc(100vh - 80px);\n  flex-direction: row;\n  align-items: center;\n  padding-left: 200px;\n  padding-right: 200px;\n  display: flex;\n}\n\n.hero_wrapper {\n  justify-content: space-between;\n  display: flex;\n}\n\n.hero_left {\n  flex: 1;\n}\n\n.hero_title {\n  word-spacing: -.3rem;\n  text-transform: uppercase;\n  font-size: 5rem;\n  font-weight: 900;\n  line-height: 5.5rem;\n}\n\n.hero_title_celerity {\n  color: #2f51fe;\n  font-size: 5.2rem;\n  text-transform: initial !important;\n}\n\n.hero_subtitle {\n  margin-top: 1rem;\n  font-size: 1.5rem;\n  font-weight: 300;\n  line-height: 2.5rem;\n}\n\n.hero_button {\n  height: 60px;\n  width: 220px;\n  color: #fff;\n  background: #000;\n  justify-content: center;\n  align-items: center;\n  margin-top: 1.5rem;\n  font-size: 1.4rem;\n  transition: all .4s;\n  display: flex;\n  position: relative;\n  overflow: hidden;\n  box-shadow: 0 8px 24px #959da533;\n}\n\n.hero_button > span {\n  z-index: 1;\n  position: relative;\n}\n\n.hero_button:after {\n  content: \" \";\n  width: 0;\n  height: 490%;\n  width: 130%;\n  background: #2f51fe;\n  transition: all .5s ease-in-out;\n  position: absolute;\n  bottom: -.1rem;\n  left: 0;\n  transform: translate(-57%, 14.5%)rotate(128deg);\n}\n\n.hero_button:hover:after {\n  transform: translate(-8%, 20%)rotate(45deg);\n}\n\n.hero_button:hover {\n  box-shadow: 0 8px 30px #959da533;\n}\n\n.typeInput {\n  width: 80%;\n  height: 40px;\n  border: 2px solid #ccc;\n  border-radius: 5px;\n  padding: 8px;\n  font-size: 24px;\n  transition: border-color .2s ease-in-out;\n}\n\n.typeInput:focus {\n  border-color: #2f51fe;\n  outline: none;\n}\n\n.hero_right {\n  flex: 1;\n  padding-left: 100px;\n}\n\n.about {\n  min-height: 100vh;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  padding-top: 5rem;\n  display: flex;\n}\n\n.about_wrapper {\n  width: 1084px;\n  max-width: 1084px;\n  justify-content: space-between;\n  display: flex;\n}\n\n@media only screen and (max-width: 600px) {\n  .hero_wrapper {\n    flex-direction: column;\n  }\n\n  body {\n    font-size: 10px;\n  }\n\n  .hero_right {\n    flex: 1;\n    padding-top: 200px;\n    padding-bottom: 200px;\n    padding-left: 0;\n  }\n}\n\n";
 
-},{}]},["IIYg2","yewiC"], "yewiC", "parcelRequire87f1")
+},{}]},["IIYg2","yewiC"], "yewiC", "parcelRequire6577")
 
 //# sourceMappingURL=index.92bb282c.js.map

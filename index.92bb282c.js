@@ -3347,7 +3347,7 @@ const createCustomComponent = (name, config)=>{
             this[0, _constants.STATE] = {};
             this._signals = {};
             for(const key in this._config.state){
-                if ((0, _lodashDefault.default).isArray(this._config.state[key])) this._signals[key] = this._config.state[key];
+                if ((0, _lodashDefault.default).isArray(this._config.state[key]) && this._config.state[key].length > 0) this._signals[key] = this._config.state[key];
                 else this._signals[key] = (0, _solidJs.createSignal)(this._config.state[key]);
                 this[0, _constants.STATE][key] = this._signals[key][0];
             }
@@ -3369,7 +3369,7 @@ const createCustomComponent = (name, config)=>{
         }
         /*
      *  dispatchDomEvent(name: stirng, paylod: object, META:{stopPropagation})
-     */ dispatchInternalEvent(name, payload = null, meta = null) {
+     */ dispatchInternalEvent(name, payload = {}, meta = null) {
             //If meta.stopPropagation is true then do not bubble the event
             const host_meta = {};
             //if (this.meta) host_meta = this.meta;
@@ -3423,7 +3423,20 @@ const createCustomComponent = (name, config)=>{
                     if (eventBusEvent[index].host == host) flag = true;
                     if (flag) {
                         let host_meta = {};
-                        if (this.meta) host_meta = this.meta;
+                        if (!(0, _lodashDefault.default).isEmpty(this.meta)) host_meta = this.meta;
+                        else if (!(0, _lodashDefault.default).isEmpty(this.uxr_props)) {
+                            let obj = {};
+                            for(let key in this.uxr_props)if (key.includes("meta")) {
+                                const finalKey = key.slice(5);
+                                obj[finalKey] = this.uxr_props[key];
+                            }
+                            host_meta = obj;
+                        } else {
+                            const attrKeys = this.getAttributeNames();
+                            let obj = {};
+                            for(const key in attrKeys)if (attrKeys[key].includes("meta")) obj[attrKeys[key].slice(5)] = this.getAttribute(attrKeys[key]);
+                            host_meta = obj;
+                        }
                         const payloadWithDetails = {
                             name: name,
                             payload: payload,
@@ -3508,8 +3521,13 @@ const createCustomComponent = (name, config)=>{
                 const isInternalAction = (0, _actions.actionUtils).checkIfActionIsInternal(actionHandlers[key].name);
                 const internalAction = (0, _actions.actionUtils).getInternalAction(name);
                 let stopPropagation = false;
-                if (!isInternalAction) stopPropagation = actionHandlers[key].stopPropagation;
-                else if (internalAction) stopPropagation = internalAction.stopPropagation;
+                if (!isInternalAction) {
+                    if (actionHandlers[key].stopPropagation) stopPropagation = actionHandlers[key].stopPropagation;
+                } else {
+                    if (internalAction) {
+                        if (internalAction.stopPropagation) stopPropagation = internalAction.stopPropagation;
+                    }
+                }
                 (0, _windowDefault.default).eventBus[actionHandlers[key].name].push({
                     handler: (0, _actions.eventBusHandlerFactory)({
                         getState: this.getState.bind(this).apply(this),
@@ -18225,8 +18243,8 @@ var _constants = require("./constants");
 const addCelHostToChildren = async (el, children)=>{
     if (children) for(let key = 0; key < children.length; key++){
         let elmement = children[key];
-        if (elmement && elmement.elm) {
-            let e = elmement.elm;
+        if (elmement) {
+            let e = elmement;
             e[0, _constants.CEL_HOST] = el;
             addCelHostToChildren(el, children[key].children);
         }
@@ -18262,7 +18280,7 @@ var _web = require("solid-js/web");
 var _appCss = require("bundle-text:./App.css");
 var _appCssDefault = parcelHelpers.interopDefault(_appCss);
 var _core = require("@celerityjs/core");
-const _tmpl$ = /*#__PURE__*/ (0, _web.template)(`<div class="app"><div class="app_wrapper"><header class="header"><div class="header_wrapper"><p class="logo">Celerity</header><div class="hero"><div class="hero_wrapper"><div class="hero_left"><h1 class="hero_title">The official website of<span class="hero_title_celerity">Celerity</span>JS</h1><p class="hero_subtitle">library for building reusable, scalable Design Systems. Generate small, blazing fast Web Components that run everywhere. Complete Typescript for safe code execution. Currently running with no VDOM. So its blazing fast!</p><p class="hero_subtitle">Built with love ❤️ for future of open web!</p><div><a href="#" class="hero_button"><span class=""> Learn More</span></a><div></div></div></div><div class="hero_right"><div id="plot" class="plot"></div><input class="typeInput" placeholder="Type something here">`);
+const _tmpl$ = /*#__PURE__*/ (0, _web.template)(`<div class="app"><div class="app_wrapper"><header class="header"><div class="header_wrapper"><p class="logo">Celerity</header><div class="hero"><div class="hero_wrapper"><div class="hero_left"><h1 class="hero_title">The official website of<span class="hero_title_celerity">Celerity</span>JS</h1><p class="hero_subtitle">library for building reusable, scalable Design Systems. Generate small, blazing fast Web Components that run everywhere. Complete Typescript for safe code execution. Currently running with no VDOM. So its blazing fast!</p><p class="hero_subtitle">Built with love ❤️ for future of open web!</p><div><a href="#" class="hero_button"><span class=""> Learn More</span></a><div></div></div></div><div class="hero_right"><div id="plot" class="plot"></div><input class="typeInput" placeholder="Type something here"><div class="no_points"><h2>Number of points</h2><h2>`);
 function generateRandomData(numPoints) {
     let data = [];
     for(let i = 0; i < numPoints; i++){
@@ -18298,23 +18316,31 @@ const renderPlot = (numPoints, chart)=>{
         0
     ]);
     svg.selectAll("circle").data(data).enter().append("circle").attr("cx", (d)=>xScale(d.x)).attr("cy", (d)=>yScale(d.y)).attr("r", 5).attr("fill", "steelblue");
+    return data;
 };
-function App({ state  }) {
+function App({ state , updateState  }) {
     const setInput = (e)=>{
         e.preventDefault();
         const len = e.target.value.length * 100;
-        if (state.chart()) renderPlot(len, state.chart());
+        if (state.chart()) {
+            const data = renderPlot(len, state.chart());
+            updateState({
+                points: data.length
+            });
+        }
     };
     return (()=>{
-        const _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling, _el$8 = _el$7.firstChild, _el$9 = _el$8.nextSibling;
+        const _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling, _el$8 = _el$7.firstChild, _el$9 = _el$8.nextSibling, _el$10 = _el$9.nextSibling, _el$11 = _el$10.firstChild, _el$12 = _el$11.nextSibling;
         _el$9.$$input = setInput;
+        (0, _web.insert)(_el$12, ()=>state.points());
         return _el$;
     })();
 }
 (0, _core.Component)("main-app", {
     state: {
         input: 10,
-        chart: null
+        chart: null,
+        points: 0
     },
     props: {},
     template: App,
@@ -18337,7 +18363,7 @@ function App({ state  }) {
 ]);
 
 },{"solid-js/web":"1DGm0","bundle-text:./App.css":"an5XU","@celerityjs/core":"hYM5F","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"an5XU":[function(require,module,exports) {
-module.exports = ".app {\n  box-sizing: border-box;\n  align-items: center;\n  margin: 0;\n  padding: 0;\n  font-family: Oswald, sans-serif;\n}\n\na {\n  color: inherit;\n  text-decoration: none;\n}\n\nbutton {\n  cursor: pointer;\n  border: none;\n  outline: none;\n}\n\n.header {\n  height: 80px;\n  color: #000;\n  background: #fff;\n  justify-content: center;\n  align-items: center;\n  padding-left: 50px;\n  padding-right: 50px;\n  display: flex;\n}\n\n.header_wrapper {\n  height: 100%;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n  display: flex;\n}\n\n.logo {\n  color: #2f51fe;\n  font-size: 2rem;\n  font-weight: 900;\n}\n\n.nav_links {\n  align-items: center;\n  gap: 2.5rem;\n  display: flex;\n}\n\n.nav_link {\n  font-size: 1.2rem;\n  transition: all .4s;\n  position: relative;\n}\n\n.nav_link:hover {\n  transform: scale(1.1);\n}\n\n.nav_link:after {\n  content: \" \";\n  width: 0;\n  height: 3px;\n  background: #2f51fe;\n  transition: all .4s;\n  position: absolute;\n  bottom: -.1rem;\n  left: 0;\n}\n\n.nav_link:hover:after {\n  width: 100%;\n}\n\n.button {\n  height: 50px;\n  width: 150px;\n  color: #fff;\n  background: #2f51fe;\n  border-radius: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: bold;\n  display: flex;\n}\n\n.hero {\n  min-height: calc(100vh - 80px);\n  flex-direction: row;\n  align-items: center;\n  padding-left: 200px;\n  padding-right: 200px;\n  display: flex;\n}\n\n.hero_wrapper {\n  justify-content: space-between;\n  display: flex;\n}\n\n.hero_left {\n  flex: 1;\n}\n\n.hero_title {\n  word-spacing: -.3rem;\n  text-transform: uppercase;\n  font-size: 5rem;\n  font-weight: 900;\n  line-height: 5.5rem;\n}\n\n.hero_title_celerity {\n  color: #2f51fe;\n  font-size: 5.2rem;\n  text-transform: initial !important;\n}\n\n.hero_subtitle {\n  margin-top: 1rem;\n  font-size: 1.5rem;\n  font-weight: 300;\n  line-height: 2.5rem;\n}\n\n.hero_button {\n  height: 60px;\n  width: 220px;\n  color: #fff;\n  background: #000;\n  justify-content: center;\n  align-items: center;\n  margin-top: 1.5rem;\n  font-size: 1.4rem;\n  transition: all .4s;\n  display: flex;\n  position: relative;\n  overflow: hidden;\n  box-shadow: 0 8px 24px #959da533;\n}\n\n.hero_button > span {\n  z-index: 1;\n  position: relative;\n}\n\n.hero_button:after {\n  content: \" \";\n  width: 0;\n  height: 490%;\n  width: 130%;\n  background: #2f51fe;\n  transition: all .5s ease-in-out;\n  position: absolute;\n  bottom: -.1rem;\n  left: 0;\n  transform: translate(-57%, 14.5%)rotate(128deg);\n}\n\n.hero_button:hover:after {\n  transform: translate(-8%, 20%)rotate(45deg);\n}\n\n.hero_button:hover {\n  box-shadow: 0 8px 30px #959da533;\n}\n\n.typeInput {\n  width: 80%;\n  height: 40px;\n  border: 2px solid #ccc;\n  border-radius: 5px;\n  padding: 8px;\n  font-size: 24px;\n  transition: border-color .2s ease-in-out;\n}\n\n.typeInput:focus {\n  border-color: #2f51fe;\n  outline: none;\n}\n\n.hero_right {\n  flex: 1;\n  padding-left: 100px;\n}\n\n.about {\n  min-height: 100vh;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  padding-top: 5rem;\n  display: flex;\n}\n\n.about_wrapper {\n  width: 1084px;\n  max-width: 1084px;\n  justify-content: space-between;\n  display: flex;\n}\n\n@media only screen and (max-width: 600px) {\n  .hero_wrapper {\n    flex-direction: column;\n  }\n\n  body {\n    font-size: 10px;\n  }\n\n  .hero_right {\n    flex: 1;\n    padding-top: 200px;\n    padding-bottom: 200px;\n    padding-left: 0;\n  }\n}\n\n";
+module.exports = ".app {\n  box-sizing: border-box;\n  align-items: center;\n  margin: 0;\n  padding: 0;\n  font-family: Oswald, sans-serif;\n}\n\na {\n  color: inherit;\n  text-decoration: none;\n}\n\nbutton {\n  cursor: pointer;\n  border: none;\n  outline: none;\n}\n\n.no_points {\n  flex-direction: row;\n  gap: 15px;\n  display: flex;\n}\n\n.header {\n  height: 80px;\n  color: #000;\n  background: #fff;\n  justify-content: center;\n  align-items: center;\n  padding-left: 50px;\n  padding-right: 50px;\n  display: flex;\n}\n\n.header_wrapper {\n  height: 100%;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n  display: flex;\n}\n\n.logo {\n  color: #2f51fe;\n  font-size: 2rem;\n  font-weight: 900;\n}\n\n.nav_links {\n  align-items: center;\n  gap: 2.5rem;\n  display: flex;\n}\n\n.nav_link {\n  font-size: 1.2rem;\n  transition: all .4s;\n  position: relative;\n}\n\n.nav_link:hover {\n  transform: scale(1.1);\n}\n\n.nav_link:after {\n  content: \" \";\n  width: 0;\n  height: 3px;\n  background: #2f51fe;\n  transition: all .4s;\n  position: absolute;\n  bottom: -.1rem;\n  left: 0;\n}\n\n.nav_link:hover:after {\n  width: 100%;\n}\n\n.button {\n  height: 50px;\n  width: 150px;\n  color: #fff;\n  background: #2f51fe;\n  border-radius: 50px;\n  justify-content: center;\n  align-items: center;\n  font-weight: bold;\n  display: flex;\n}\n\n.hero {\n  min-height: calc(100vh - 80px);\n  flex-direction: row;\n  align-items: center;\n  padding-left: 200px;\n  padding-right: 200px;\n  display: flex;\n}\n\n.hero_wrapper {\n  justify-content: space-between;\n  display: flex;\n}\n\n.hero_left {\n  flex: 1;\n}\n\n.hero_title {\n  word-spacing: -.3rem;\n  text-transform: uppercase;\n  font-size: 5rem;\n  font-weight: 900;\n  line-height: 5.5rem;\n}\n\n.hero_title_celerity {\n  color: #2f51fe;\n  font-size: 5.2rem;\n  text-transform: initial !important;\n}\n\n.hero_subtitle {\n  margin-top: 1rem;\n  font-size: 1.5rem;\n  font-weight: 300;\n  line-height: 2.5rem;\n}\n\n.hero_button {\n  height: 60px;\n  width: 220px;\n  color: #fff;\n  background: #000;\n  justify-content: center;\n  align-items: center;\n  margin-top: 1.5rem;\n  font-size: 1.4rem;\n  transition: all .4s;\n  display: flex;\n  position: relative;\n  overflow: hidden;\n  box-shadow: 0 8px 24px #959da533;\n}\n\n.hero_button > span {\n  z-index: 1;\n  position: relative;\n}\n\n.hero_button:after {\n  content: \" \";\n  width: 0;\n  height: 490%;\n  width: 130%;\n  background: #2f51fe;\n  transition: all .5s ease-in-out;\n  position: absolute;\n  bottom: -.1rem;\n  left: 0;\n  transform: translate(-57%, 14.5%)rotate(128deg);\n}\n\n.hero_button:hover:after {\n  transform: translate(-8%, 20%)rotate(45deg);\n}\n\n.hero_button:hover {\n  box-shadow: 0 8px 30px #959da533;\n}\n\n.typeInput {\n  width: 80%;\n  height: 40px;\n  border: 2px solid #ccc;\n  border-radius: 5px;\n  padding: 8px;\n  font-size: 24px;\n  transition: border-color .2s ease-in-out;\n}\n\n.typeInput:focus {\n  border-color: #2f51fe;\n  outline: none;\n}\n\n.hero_right {\n  flex: 1;\n  padding-left: 100px;\n}\n\n.about {\n  min-height: 100vh;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  padding-top: 5rem;\n  display: flex;\n}\n\n.about_wrapper {\n  width: 1084px;\n  max-width: 1084px;\n  justify-content: space-between;\n  display: flex;\n}\n\n@media only screen and (max-width: 600px) {\n  .hero_wrapper {\n    flex-direction: column;\n  }\n\n  body {\n    font-size: 10px;\n  }\n\n  .hero_right {\n    flex: 1;\n    padding-top: 200px;\n    padding-bottom: 200px;\n    padding-left: 0;\n  }\n}\n\n";
 
 },{}]},["IIYg2","yewiC"], "yewiC", "parcelRequire6577")
 

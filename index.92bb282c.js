@@ -18353,7 +18353,10 @@ function App({ state , updateState  }) {
                 updateState({
                     chart: chart
                 });
-                renderPlot(50, chart);
+                const data = renderPlot(50, chart);
+                updateState({
+                    points: data.length
+                });
             }
         }
     ]

@@ -2353,7 +2353,7 @@
                         z-index: 5;
                     }
 
-                    .hero-preview img {
+                    .hero-preview video {
                         padding: 5px;
                         -o-object-fit: cover;
                         object-fit: cover;
@@ -2470,18 +2470,25 @@
                             animation: initial;
                         }
 
-                        .hero-preview img {
+                        .hero-preview video {
                             width: 100%;
                         }
                     }
                 </style>
                 <div class="hero-preview" q:key="8B_0">
-                    <img
+                    <!-- <img
                         alt="A preview of CelerityJs"
                         decoding="async"
                         fetchpriority="high"
                         src="./celerityjs.png"
-                    />
+                    /> -->
+                    <video autoplay loop muted playsinline>
+            <!-- Provide multiple video sources for better browser compatibility -->
+            <source src="./celerity_demo.mp4" type="video/mp4">
+            <!-- Add more source elements as needed for different video formats -->
+            
+            Your browser does not support the video tag.
+        </video>
                     <div class="hero-preview-animation">
                         <div class="hero-preview-animation-line"></div>
                         <div class="hero-preview-animation-line"></div>
